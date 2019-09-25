@@ -15,6 +15,7 @@ Route::get('/transactions','PagesController@transactions');
 Route::get('/account','PagesController@account');
 Route::get('/receipt','PagesController@receipt');
 Route::get('/statistics','PagesController@statistics');
+Route::get('/categories','PagesController@categories');
 // Route::get('/', function () {
 //     return view('welcome');
 // });
@@ -22,3 +23,15 @@ Route::get('/statistics','PagesController@statistics');
 // Auth::routes();
 
 // Route::get('/home', 'HomeController@index')->name('home');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

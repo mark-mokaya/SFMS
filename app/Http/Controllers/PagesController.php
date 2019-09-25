@@ -25,5 +25,8 @@ class PagesController extends Controller
     public function receipt(){
         return view('pages.receipt');
     }
+    public function categories(){
+        return view('pages.categories');
+    }
 
 }
