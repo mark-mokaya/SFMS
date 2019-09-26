@@ -3,24 +3,23 @@
 <head>
 	<title>SFMS-My Accounts</title>
 	<link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/main.css') }}">
 </head>
 <body>
-	
 	<div id="container">
 		<nav>
 			<div class="links">
 				<ul>
-					<li><a href="home">SFMS</a></li>
-					<li><a href="account">Accounts</a></li>
-					<li><a href="addExpense">Expenses</a></li>
+					<li><a href="home.php">SFMS</a></li>
+					<li><a href="accounts.php">Accounts</a></li>
+					<li><a href="add-expense.php">Expenses</a></li>
 				</ul>
 			</div>
 
 			<div class="log-reg-btns">
 					<form action="index.php" method="post">
-						<a href='#' style = 'padding: 0px; margin: 0px; text-decoration: underline;'> {{ Auth::user()->name }}</a> 
-						{{-- <input type="submit" name="logout" value="LOGOUT"> --}}
+						<a href='#' style = 'padding: 0px; margin: 0px; text-decoration: underline;'> {{ Auth::user()->name }}</a>.
+						<!-- <input type="submit" name="logout" value="LOGOUT"> -->
 					</form>
 			</div>
         </nav>

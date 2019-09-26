@@ -13,6 +13,9 @@ class PagesController extends Controller
     public function account(){
         return view('pages.account');
     }
+    public function addExpense(){
+        return view('pages.addExpense');
+    }
     public function transactions()
     {
         return view('pages.transactions');

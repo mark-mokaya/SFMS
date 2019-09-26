@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <!--
 This is a starter template page. Use this page to start your new project from
-scratch. This page gets rid of all links and provides the needed markup only.
+scratch. This p.age gets rid of all links and provides the needed markup only.
 -->
 <html lang="en">
 <head>
@@ -13,7 +13,20 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <title>AdminLTE 3 | Starter</title>
   <link href="{{ asset('css/app.css') }}" rel="stylesheet">  
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
-<script type="text/javascript" src="https://gc.kis.scr.kaspersky-labs.com/B3699290-AFBE-DF45-97A8-62D5B0EEE562/main.js" charset="UTF-8"></script></head>
+<script type="text/javascript" src="https://gc.kis.scr.kaspersky-labs.com/B3699290-AFBE-DF45-97A8-62D5B0EEE562/main.js" charset="UTF-8"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0/dist/Chart.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"></script>
+{{-- <script src="plugins/jquery/jquery.min.js"></script> --}}
+<!-- Bootstrap 4 -->
+{{-- <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script> --}}
+<!-- AdminLTE App -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/admin-lte/2.4.18/css/AdminLTE.css"></script>
+<script
+  src="https://code.jquery.com/jquery-3.4.1.js"
+  integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+  crossorigin="anonymous"></script>
+{{-- <script src="dist/js/adminlte.min.js"></script> --}}
+</head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper"id="app" >
 
@@ -25,11 +38,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <a class="nav-link" data-widget="pushmenu" href="#"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="index3.html" class="nav-link">Home</a>
+        <a href="account" class="nav-link">Accounts</a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="#" class="nav-link">Contact</a>
+        <a href="statistics" class="nav-link">Statistics</a>
       </li>
+      <li><a href="categories" class="nav-link">Categories</a></li>
     </ul>
 
     <!-- SEARCH FORM -->
@@ -43,98 +57,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
         </div>
       </div>
     </form>
-
-    <!-- Right navbar links -->
-    <ul class="navbar-nav ml-auto">
-      <!-- Messages Dropdown Menu -->
-      <li class="nav-item dropdown">
-        <a class="nav-link" data-toggle="dropdown" href="#">
-          <i class="far fa-comments"></i>
-          <span class="badge badge-danger navbar-badge">3</span>
-        </a>
-        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-          <a href="#" class="dropdown-item">
-            <div class="media">
-              <img src="./img/profile.jpg" alt="User Avatar" class="img-size-50 mr-3 img-circle">
-              <div class="media-body">
-                <h3 class="dropdown-item-title">
-                  Brad Diesel
-                  <span class="float-right text-sm text-danger"><i class="fas fa-star"></i></span>
-                </h3>
-                <p class="text-sm">Call me whenever you can...</p>
-                <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
-              </div>
-            </div>
-            <!-- Message End -->
-          </a>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item">
-            <!-- Message Start -->
-            <div class="media">
-              <img src="./img/profile.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
-              <div class="media-body">
-                <h3 class="dropdown-item-title">
-                  John Pierce
-                  <span class="float-right text-sm text-muted"><i class="fas fa-star"></i></span>
-                </h3>
-                <p class="text-sm">I got your message bro</p>
-                <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
-              </div>
-            </div>
-            <!-- Message End -->
-          </a>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item">
-            <!-- Message Start -->
-            <div class="media">
-              <img src="./img/profile.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
-              <div class="media-body">
-                <h3 class="dropdown-item-title">
-                  Nora Silvester
-                  <span class="float-right text-sm text-warning"><i class="fas fa-star"></i></span>
-                </h3>
-                <p class="text-sm">The subject goes here</p>
-                <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
-              </div>
-            </div>
-            <!-- Message End -->
-          </a>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
-        </div>
-      </li>
-      <!-- Notifications Dropdown Menu -->
-      <li class="nav-item dropdown">
-        <a class="nav-link" data-toggle="dropdown" href="#">
-          <i class="far fa-bell"></i>
-          <span class="badge badge-warning navbar-badge">15</span>
-        </a>
-        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-          <span class="drop down-header">15 Notifications</span>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item">
-            <i class="fas fa-envelope mr-2"></i> 4 new messages
-            <span class="float-right text-muted text-sm">3 mins</span>
-          </a>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item">
-            <i class="fas fa-users mr-2"></i> 8 friend requests
-            <span class="float-right text-muted text-sm">12 hours</span>
-          </a>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item">
-            <i class="fas fa-file mr-2"></i> 3 new reports
-            <span class="float-right text-muted text-sm">2 days</span>
-          </a>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
-        </div>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#"><i
-            class="fas fa-th-large"></i></a>
-      </li>
-    </ul>
+      
   </nav>
   <!-- /.navbar -->
 
@@ -144,7 +67,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <a href="index3.html" class="brand-link">
       <img src="./img/profile.jpg" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
            style="opacity: .8">
-      <span class="brand-text font-weight-light">AdminLTE 3</span>
+      <span class="brand-text font-weight-light">MONEY APP</span>
     </a>
 
     <!-- Sidebar -->
@@ -169,7 +92,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <i class="nav-icon fas fa-tachometer-alt"></i>
                 <p>
                   Dashboard 
-                  
                 </p>
               </router-link>
             
@@ -234,10 +156,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
           <!-- /.col-md-6 -->
         </div>
       </div>
-    </div>
-  </div>
-
-
+    </div><body>
+      <div class="container" width=50%>
+      <canvas id="myChart"></canvas>
+      <canvas id="mySec"></canvas>
+      </div>
+      
+  
   <!-- Main Footer -->
   <footer class="main-footer">
     <!-- To the right -->
@@ -248,16 +173,146 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <strong>Copyright &copy; 2014-2019 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
   </footer>
 </div>
-<!-- ./wrapper -->
 
-<!-- REQUIRED SCRIPTS -->
+<script>
+  let myChart= document.getElementById('myChart').getContext('2d');
+  //Global options
+   Chart.defaults.global.defaultFontSize = 12;
+  let Expenses = new Chart(myChart,{
+    type:'line',//dft types of charts
+    data:{ 
+      labels:['January','February','March','April','May','June','July','August','September','November' ],
+      datasets:[{
+        label:'Monthly Spending',
+        data:[
+          80,
+          20,
+          50,
+          40,
+          50,
+          30,
+          70,
+          40,
+          90,
+          100
+  
+        ],
+        backgroundColor:[
+          'rgb(0,0,128,0.6)',
+          'rgb(128,0,5,0.6)',
+          'rgb(0,128,0,0.6)',
+          'rgb(255,0,0,0.6)',
+          'rgb(255,255,0,0.6)',
+     
+          'rgb(0,255,255,0.6)',
+          'rgb(255,0,255,0.6)',
+          'rgb(192,192,192,0.6)',
+          'rgb(0,255,0,0.6)',
+          'rgb(128,0,128,0.6)'
+        ],
+        borderWidth:1,
+        borderColor:'rgb(255,250,250)',
+        hoverBorderWidth:1,
+        hoverBorderColor:'#000'
 
-<!-- jQuery -->
-<script src="plugins/jquery/jquery.min.js"></script>
-<!-- Bootstrap 4 -->
-<script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-<!-- AdminLTE App -->
-<script src="dist/js/adminlte.min.js"></script>
+      }]
+    },
+    options:{
+        title:{
+            display:true,
+            text:'YOUR ANNUAL SPENDINGS'
+
+        },
+        legend:{
+            display:false, 
+            position:'right',
+            labels:{
+                fontColor:'#000 '
+            }
+        },
+        layouts:{
+            padding:{
+                left:50,
+                right:0,
+                bottom:0,
+                top:0
+            }
+        },
+        tooltips:{
+            enable:false
+        }
+    },
+  });
+
+  let mySec= document.getElementById('mySec').getContext('2d');
+  //Global options
+   Chart.defaults.global.defaultFontSize = 12;
+  let Spendings = new Chart(mySec,{
+    type:'doughnut',//dft types of charts
+    data:{ 
+      labels:['January','February','March','April','May','June','July','August','September','November' ],
+      datasets:[{
+        label:'Monthly Spending',
+        data:[
+          80,
+          20,
+          50,
+          40,
+          50,
+          30,
+          70,
+          40,
+          90,
+          100
+  
+        ],
+        backgroundColor:[
+          'rgb(0,0,128,0.6)',
+          'rgb(128,0,5,0.6)',
+          'rgb(0,128,0,0.6)',
+          'rgb(255,0,0,0.6)',
+          'rgb(255,255,0,0.6)',
+       
+          'rgb(0,255,255,0.6)',
+          'rgb(255,0,255,0.6)',
+          'rgb(192,192,192,0.6)',
+          'rgb(0,255,0,0.6)',
+          'rgb(128,0,128,0.6)'
+        ],
+        borderWidth:1,
+        borderColor:'rgb(255,250,250)',
+        hoverBorderWidth:1,
+        hoverBorderColor:'#000'
+
+      }]
+    },
+    options:{
+        title:{
+            display:true,
+            text:'YOUR ANNUAL SPENDINGS'
+
+        },
+        legend:{
+            display:false, 
+            position:'right',
+            labels:{
+                fontColor:'#000 '
+            }
+        },
+        layouts:{
+            padding:{
+                left:50,
+                right:0,
+                bottom:0,
+                top:0
+            }
+        },
+        tooltips:{
+            enable:false
+        }
+    },
+  });
+  </script>
 </body>
 </html>
  

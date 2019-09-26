@@ -11,11 +11,13 @@
 |
 */
 Route::get('/','PagesController@index');
+Route::get('/addExpense','PagesController@addExpense');
 Route::get('/transactions','PagesController@transactions');
 Route::get('/account','PagesController@account');
 Route::get('/receipt','PagesController@receipt');
 Route::get('/statistics','PagesController@statistics');
 Route::get('/categories','PagesController@categories');
+Route::get('users', 'UserChartController@index');
 // Route::get('/', function () {
 //     return view('welcome');
 // });
