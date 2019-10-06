@@ -15,7 +15,7 @@
 			<div class="links">
 				<ul>
                 	<li><a href="/home">SFMS</a></li>
-					<li><a href="/account">Accounts</a></li>
+					<li><a href="/accounts">Accounts</a></li>
 					<li><a href="/budget">Budgets</a></li>
 					<li><a href="/addExpense">Expenses</a></li>
 				</ul>
@@ -23,7 +23,7 @@
 
 			<div class="log-reg-btns">
 				<form action="/" method="get">
-					<a href='/' style = 'padding: 0px; margin: 0px; text-decoration: underline;'>{{$name}}</a> is logged in.
+					<a href='/' style = 'padding: 0px; margin: 0px; text-decoration: underline;'>User1</a> is logged in.
 					<input type="submit" name="logout" value="LOGOUT">
 				</form>
 			</div>
@@ -46,7 +46,7 @@
 	let summaryChart= document.getElementById('summaryChart').getContext('2d');
 	//Global options
 		Chart.defaults.global.defaultFontSize = 16;
-	let Spendings = new Chart(summaryChart,{
+		let Spendings = new Chart(summaryChart,{
 		type:'doughnut',//dft types of charts
 		data:{ 
 		labels:['Food','Shopping','Travel','Entertainment'],

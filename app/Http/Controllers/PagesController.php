@@ -29,12 +29,17 @@ class PagesController extends Controller
 
     public function addAccount($id = "No user"){
         $data = ['name' => $id];
-        return view('pages.addAccount')->with($data);
+        return view('accounts.add')->with($data);
     }
 
     public function addReceipt($id = "No user"){
         $data = ['name' => $id];
         return view('pages.addReceipt')->with($data);
+    }
+
+    public function addBudget($id = "No user"){
+        $data = ['name' => $id];
+        return view('pages.addBudget')->with($data);
     }
 
     //Admin Module Navigation

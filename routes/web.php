@@ -61,6 +61,8 @@ Route::get('/addExpense', 'PagesController@addExpense');
 
 Route::get('/addReceipt', 'PagesController@addReceipt');
 
+Route::get('/addBudget', 'PagesController@addBudget');
+
 
 
 //Routing - Other Controllers

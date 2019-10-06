@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Account;
 
 class AccountsController extends Controller
 {
@@ -13,7 +14,8 @@ class AccountsController extends Controller
      */
     public function index()
     {
-        //
+        $Accounts = Account::all();
+        return view('accounts.index')->with('Accounts', $Accounts);
     }
 
     /**

@@ -57,7 +57,7 @@ nav .log-reg-btns{
 	color: #fff;
 }
 
-.account{
+.account, .budget{
     display: inline-block;
 	max-width: 800px;
     padding: 20px;
