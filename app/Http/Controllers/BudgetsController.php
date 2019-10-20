@@ -47,7 +47,8 @@ class BudgetsController extends Controller
      */
     public function show($id)
     {
-        //
+        $budget = Budget::find($id);
+        return view('budgets.show')->with('budget', $budget);
     }
 
     /**

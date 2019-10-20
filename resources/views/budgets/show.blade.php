@@ -1,13 +1,13 @@
 @extends('layouts.main')
 @section('content')
 
-<h1>{{strToUpper($account->acc_name)}} ACCOUNT</h1>
+<h1>{{strToUpper($budget->budget_name)}} BUDGET</h1>
 
 <article>
     <div style="max-width: 500px; overflow:hidden; margin: 50px auto;">
         <canvas id="chart" width="10px"></canvas>    
-	</div>    
-	<a href="/accounts">{{"<"}} Go Back</a>
+    </div>    
+    <a href="/budgets">{{"<"}} Go Back</a>
 </article>
 
 <script>

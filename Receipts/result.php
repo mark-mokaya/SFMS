@@ -7,14 +7,15 @@
         // without image enhancements
         shell_exec('"C:\\Program Files (x86)\\Tesseract-OCR\\tesseract" "images\\'.$file_name.'" result1');
 
-        // without image enhancements
+        // with image enhancements
         shell_exec('"C:\\Program Files\\ImageMagick-7.0.8-Q16\\magick" convert -density 1000 "images\\'.$file_name.'" -depth 8 -strip -background white -alpha off "images\\result.tiff"');
 
         shell_exec('"C:\\Program Files (x86)\\Tesseract-OCR\\tesseract" "images\\result.tiff" result2');
 
         shell_exec('"C:\\Program Files\\ImageMagick-7.0.8-Q16\\magick" convert -density 1000 "images\\'.$file_name.'" -depth 8 -strip -background white -alpha off "images\\result.tiff"');
-
-        -threshold xx%
+       
+        //-threshold xx%
+        // -colorspace gray -auto-level -lat 20x20+10%
 
         shell_exec('"C:\\Program Files (x86)\\Tesseract-OCR\\tesseract" "images\\result2.tiff" result3');
 
