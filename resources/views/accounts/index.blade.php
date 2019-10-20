@@ -4,8 +4,8 @@
     @if(count($Accounts)>0)
         @foreach ($Accounts as $Account)
         <article class="account">
-            <h1><?php echo strtoupper($Account->acc_name);?></h1>
-            <p>Kshs. {{$Account->amount}} &nbsp; <a href="addExpense" class="call-to-action"><b>+</b></a>
+            <h1>{{strtoupper($Account->acc_name)}}</h1>
+            <p>Kshs. {{number_format($Account->amount,2,".",",")}} &nbsp; <a href="/accounts/{{$Account->id}}" class="call-to-action"><b></b></a>
         </article>
         @endforeach
     @else
