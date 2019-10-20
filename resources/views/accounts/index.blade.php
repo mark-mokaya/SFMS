@@ -5,11 +5,7 @@
         @foreach ($Accounts as $Account)
         <article class="account">
             <h1>{{strtoupper($Account->acc_name)}}</h1>
-<<<<<<< Updated upstream
-            <p>Kshs. {{number_format($Account->amount,2,".",",")}} &nbsp; <a href="/accounts/{{$Account->id}}" class="call-to-action"><b></b></a>
-=======
             <p>Kshs. {{number_format($Account->amount,2,".",",")}} &nbsp; <a href="/accounts/{{$Account->id}}" class="call-to-action"><b>+</b></a>
->>>>>>> Stashed changes
         </article>
         @endforeach
     @else
