@@ -17,7 +17,7 @@ class CreateAccountsTable extends Migration
             $table->bigIncrements('id');
             $table->string('acc_name');
             $table->string('acc_type');
-            $table->double('amount');
+            $table->double('amount', 8, 2);
             $table->mediumText('description');
             $table->timestamps();
         });

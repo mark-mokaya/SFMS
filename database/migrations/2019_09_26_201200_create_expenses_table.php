@@ -17,7 +17,7 @@ class CreateExpensesTable extends Migration
             $table->bigIncrements('id');
             $table->integer('category_id');
             $table->integer('acc_id');
-            $table->double('amount');
+            $table->double('amount', 8, 2);
             $table->mediumText('receipt');
             $table->timestamps();
         });

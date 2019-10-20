@@ -44,10 +44,18 @@
 	</div>
 	<script>
 		let doughnut= document.getElementById('doughnut').getContext('2d');
+<<<<<<< Updated upstream
 		//Global options
 		Chart.defaults.global.defaultFontSize = 16;
 		let Stats = new Chart(doughnut,{
 		type:'doughnut',//dft types of charts
+=======
+		
+		//Global options
+		Chart.defaults.global.defaultFontSize = 16;
+		let Stats = new Chart(doughnut,{
+		type:'doughnut',
+>>>>>>> Stashed changes
 		data:{ 
 		labels:['Food','Shopping','Travel','Entertainment'],
 		datasets:[{
@@ -72,21 +80,33 @@
 			}
 		}});
 
+<<<<<<< Updated upstream
 		let line= document.getElementById('line').getContext('2d');
 		//Global options
 		Chart.defaults.global.defaultFontSize = 16;
 		let Stats2 = new Chart(doughnut,{
 		type:'doughnut',//dft types of charts
+=======
+		
+		let line= document.getElementById('line').getContext('2d');
+		//Global options
+		let Stats2 = new Chart(line,{
+		type:'line',
+>>>>>>> Stashed changes
 		data:{ 
 		labels:['Food','Shopping','Travel','Entertainment'],
 		datasets:[{
 			label:'Monthly Spending',
+<<<<<<< Updated upstream
 			data:[80,20,50,40],
 			backgroundColor:['#FE4A49','#2AB7CA','#FED766','#E6E6EA'],
 			borderWidth:2,
 			borderColor:'#fff',
 			hoverBorderWidth:0,
 			hoverBorderColor:'#fff'
+=======
+			data:[80,20,50,40]
+>>>>>>> Stashed changes
 		}]},
 		options:{
 			title:{

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Budget;
 
 class BudgetsController extends Controller
 {
@@ -13,7 +14,8 @@ class BudgetsController extends Controller
      */
     public function index()
     {
-        //
+        $Budgets = Budget::all();
+        return view('budgets.index')->with('Budgets', $Budgets);
     }
 
     /**
