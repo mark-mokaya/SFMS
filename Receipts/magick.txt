@@ -1,1 +1,0 @@
-magick convert -density 300 test.jpg -depth 8 -strip -background white -alpha off out.tiff
