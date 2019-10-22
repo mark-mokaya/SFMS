@@ -26,7 +26,7 @@ body{
 }
 
 nav .links{
-    width: 600px;
+    width: auto;
 	display: block;
 	float: left;
 	margin-top: 20px;
@@ -111,10 +111,11 @@ footer .links ul li a:hover{
 	margin-top: 8px;
 }
 
-form input{
+form input, form select{
 	font-size: 18px;
 	font-family: 'Lato', sans-serif;
 	background-color: #ddd;
+	text-align: center;
 }
 
 form input[type = "submit"]{
@@ -141,10 +142,18 @@ section{
 	margin: 0px auto;
 }
 
-.modal form input{
+.modal form input,.modal form select{
 	height: 25px;
 	width: 400px;
 	padding: 10px;
+	border-radius: 5px;
+	border: none;
+	outline: none;
+}
+
+.modal form select{
+	height: 45px;
+	width: 420px;
 	border-radius: 5px;
 	border: none;
 	outline: none;
@@ -172,4 +181,17 @@ textarea{
 	border: none;
 	border-radius: 8px;
 	outline: none;
+}
+
+.message{
+	width: 400px;
+	margin: 10px auto;
+}
+
+.error{
+	color: #e74c3c;
+}
+
+.success{
+	color: #27ae60;
 }

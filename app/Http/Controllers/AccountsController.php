@@ -25,7 +25,7 @@ class AccountsController extends Controller
      */
     public function create()
     {
-        //
+        return view('accounts.create');
     }
 
     /**
@@ -36,7 +36,20 @@ class AccountsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+         $this->validate($request, [
+            'account_name' => 'required',
+            'account_type' => 'required',
+            'amount'  => 'required'
+         ]);
+
+         //Create Account
+         $account = new Account;
+         $account->acc_name = $request->input('account_name');
+         $account->acc_type = $request->input('account_type');
+         $account->amount = $request->input('amount');
+         $account->description = $request->input('description');
+         $account->save();
+         return redirect('/accounts')->with('success', 'New Account Created');
     }
 
     /**
@@ -47,7 +60,8 @@ class AccountsController extends Controller
      */
     public function show($id)
     {
-        //
+        $account = Account::find($id);
+        return view('accounts.show')->with('account', $account);
     }
 
     /**

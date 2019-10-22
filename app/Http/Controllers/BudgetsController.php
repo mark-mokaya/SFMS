@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Budget;
 
 class BudgetsController extends Controller
 {
@@ -13,7 +14,8 @@ class BudgetsController extends Controller
      */
     public function index()
     {
-        //
+        $Budgets = Budget::all();
+        return view('budgets.index')->with('Budgets', $Budgets);
     }
 
     /**
@@ -23,7 +25,7 @@ class BudgetsController extends Controller
      */
     public function create()
     {
-        //
+        return view('budgets.create');
     }
 
     /**
@@ -34,7 +36,18 @@ class BudgetsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'budget_name' => 'required',
+            'amount'  => 'required'
+         ]);
+
+         //Create Budget
+         $budget = new Budget;
+         $budget->budget_name = $request->input('budget_name');
+         $budget->amount = $request->input('amount');
+         $budget->description = $request->input('description');
+         $budget->save();
+         return redirect('/budgets')->with('success', 'New Budget Created');
     }
 
     /**
@@ -45,7 +58,8 @@ class BudgetsController extends Controller
      */
     public function show($id)
     {
-        //
+        $budget = Budget::find($id);
+        return view('budgets.show')->with('budget', $budget);
     }
 
     /**

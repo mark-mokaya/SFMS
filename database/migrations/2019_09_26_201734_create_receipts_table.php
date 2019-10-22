@@ -17,8 +17,8 @@ class CreateReceiptsTable extends Migration
             $table->bigIncrements('id');
             $table->integer('expense_id');
             $table->string('category_id');
-            $table->double('amount');
-            $table->mediumText('description');
+            $table->double('amount', 8, 2);
+            $table->mediumText('description')->nullable();
             $table->timestamps();
         });
     }

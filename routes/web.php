@@ -49,19 +49,11 @@ Route::get('/stats', function () {
 
 Route::get('/home', 'PagesController@home');
 
-Route::get('/account', 'PagesController@account');
-
-Route::get('/budget', 'PagesController@budget');
-
 Route::get('/expense', 'PagesController@expense');
-
-Route::get('/addAccount', 'PagesController@addAccount');
 
 Route::get('/addExpense', 'PagesController@addExpense');
 
 Route::get('/addReceipt', 'PagesController@addReceipt');
-
-Route::get('/addBudget', 'PagesController@addBudget');
 
 
 
