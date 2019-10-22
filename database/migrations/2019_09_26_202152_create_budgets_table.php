@@ -17,7 +17,7 @@ class CreateBudgetsTable extends Migration
             $table->bigIncrements('id');
             $table->string('budget_name');
             $table->double('amount', 8, 2);
-            $table->mediumText('description');
+            $table->mediumText('description')->nullable();
             $table->timestamps();
         });
     }

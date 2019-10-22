@@ -3,11 +3,24 @@
     <h1>ADD EXPENSE</h1>
 	<div class="modal" id="reg-modal">        
         {!! Form::open(['action' => 'ExpensesController@store', 'method' => 'POST']) !!}
+
             <p>{{Form::label('category','Category')}}<br>
-            {{Form::text('category', '')}}</p>
+                <?php 
+                    $list=[];
+                    foreach ($Categories as $Category) {
+                        $list[$Category->id] = $Category->category_name;
+                    }
+                ?>
+            {{Form::select('category', $list, null, ['placeholder' => ''])}}</p>
 
             <p>{{Form::label('account_name','Account Name')}}<br>
-            {{Form::select('Account Name', ['L' => 'Large', 'S' => 'Small'], null, ['placeholder' => ''])}}</p>
+                <?php 
+                    $list=[];
+                    foreach ($Accounts as $Account) {
+                        $list[$Account->id] = $Account->acc_name;
+                    }
+                ?>
+            {{Form::select('account_name', $list, null, ['placeholder' => ''])}}</p>
             
             <p>{{Form::label('amount','Amount')}}<br>
             {{Form::number('amount', '', ['step'=>'0.01', 'min'=>'0'])}}</p>

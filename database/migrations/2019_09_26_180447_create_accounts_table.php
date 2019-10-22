@@ -18,7 +18,7 @@ class CreateAccountsTable extends Migration
             $table->string('acc_name');
             $table->string('acc_type');
             $table->double('amount', 8, 2);
-            $table->mediumText('description');
+            $table->mediumText('description')->nullable();
             $table->timestamps();
         });
     }

@@ -26,7 +26,7 @@ body{
 }
 
 nav .links{
-    width: 600px;
+    width: auto;
 	display: block;
 	float: left;
 	margin-top: 20px;

@@ -18,7 +18,7 @@ class CreateExpensesTable extends Migration
             $table->integer('category_id');
             $table->integer('acc_id');
             $table->double('amount', 8, 2);
-            $table->mediumText('receipt');
+            $table->mediumText('receipt')->nullable();
             $table->timestamps();
         });
     }

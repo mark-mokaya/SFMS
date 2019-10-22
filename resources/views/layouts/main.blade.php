@@ -18,6 +18,7 @@
 					<li><a href="/accounts">Accounts</a></li>
 					<li><a href="/budgets">Budgets</a></li>
 					<li><a href="/expenses">Expenses</a></li>
+					<li><a href="/categories">Categories</a></li>
 				</ul>
 			</div>
 
