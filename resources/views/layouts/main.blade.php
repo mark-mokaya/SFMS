@@ -17,7 +17,7 @@
                 	<li><a href="/home">SFMS</a></li>
 					<li><a href="/accounts">Accounts</a></li>
 					<li><a href="/budgets">Budgets</a></li>
-					<li><a href="/addExpense">Expenses</a></li>
+					<li><a href="/expenses">Expenses</a></li>
 				</ul>
 			</div>
 
@@ -27,7 +27,10 @@
 					<input type="submit" name="logout" value="LOGOUT">
 				</form>
 			</div>
-        </nav>
+		</nav>
+
+		@include('inc.messages')
+		
         @yield('content')
 		<br><br><br>
 		

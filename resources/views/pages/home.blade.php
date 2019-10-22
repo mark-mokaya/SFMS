@@ -9,23 +9,6 @@
             </div>    
         </article>
 
-        <h1>MY EXPENSES</h1>
-
-        <article class="account">
-            <h1>TODAY</h1>
-            <p>Kshs. 1000.00 &nbsp; <a href="#" class="call-to-action"><b>+</b></a>
-        </article>
-
-        <article class="account">
-            <h1>THIS WEEK</h1>
-            <p>Kshs. 3000.00 &nbsp; <a href="#" class="call-to-action"><b>+</b></a>
-        </article>
-
-        <article class="account">
-            <h1>THIS MONTH</h1>
-            <p>Kshs. 4500.00 &nbsp; <a href="#" class="call-to-action"><b>+</b></a>
-        </article>
-
         <script>
                 let doughnut= document.getElementById('doughnut').getContext('2d');
         

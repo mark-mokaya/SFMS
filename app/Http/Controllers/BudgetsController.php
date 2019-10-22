@@ -25,7 +25,7 @@ class BudgetsController extends Controller
      */
     public function create()
     {
-        //
+        return view('budgets.create');
     }
 
     /**
@@ -36,7 +36,18 @@ class BudgetsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'budget_name' => 'required',
+            'amount'  => 'required'
+         ]);
+
+         //Create Budget
+         $budget = new Budget;
+         $budget->budget_name = $request->input('budget_name');
+         $budget->amount = $request->input('amount');
+         $budget->description = $request->input('description');
+         $budget->save();
+         return redirect('/budgets')->with('success', 'New Budget Created');
     }
 
     /**
