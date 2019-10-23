@@ -62,32 +62,20 @@ Route::get('/addReceipt', 'PagesController@addReceipt');
 Route::resource('accounts', 'AccountsController');
 
 Route::resource('budgets', 'BudgetsController');
-
-Route::resource('expenses', 'ExpensesController');
+ Route::resource('expenses', 'ExpensesController');
 
 Route::resource('categories', 'CategoriesController');
 
 Route::resource('receipts', 'ReceiptsController');
 
+Auth::routes(['verify' => true]);
+Route::get('admin/check',function(){
+    return "This route can only be accessed by super admin";
+})->middleware('role:super');
+// Route::get('about', function () {
+//     // Only verified users may enter...
+// })->middleware('verified');
+// Auth::routes();
 
+// Route::get('/home', 'HomeController@index')->name('home');
 
-/*Extra
-
-// Route::get('/home/{id?}', 'PagesController@home');
-
-Route::get('/', function () {
-    return view('index');
-});
-
-
-Route::get('/contact/{id?}', function ($id="No user") {
-    return view('contact', ['id'=>$id]);
-});
-
-Route::get('/about', function () {
-    return view('about', ['title' => 'THIS IS THE ABOUT PAGE']);
-});
-
-Route::redirect('/ok', '/');
-
-*/
