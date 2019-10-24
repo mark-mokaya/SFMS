@@ -13,7 +13,7 @@
 				{{Form::number('amount', '', ['step'=>'0.01', 'min'=>'0'])}}</p>
 
 				<p>{{Form::label('description','Description')}}<br>
-				{{Form::textarea('description', '', ['cols' => '43', 'rows' => '5', 'style' => 'resize:none'])}}</p>
+				{{Form::textarea('description', 'My ... Account', ['cols' => '43', 'rows' => '5', 'style' => 'resize:none'])}}</p>
 
 				<p>{{Form::submit('ADD ACCOUNT')}}</p>
 

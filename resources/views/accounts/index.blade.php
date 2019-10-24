@@ -17,7 +17,9 @@
         @foreach ($Accounts as $Account)
         <article class="account">
             <h1>{{strtoupper($Account->acc_name)}}</h1>
-            <p>Kshs. {{number_format($Account->amount,2,".",",")}} &nbsp; <a href="/accounts/{{$Account->id}}" class="call-to-action"><b>+</b></a>
+            <p>My {{ucFirst($Account->acc_name)}} Account<br><b>Kshs. {{number_format($Account->amount,2,".",",")}}</b>
+            <br><br>
+            <p><a href="/accounts/{{$Account->id}}" class="call-to-action"><b>VIEW</b></a> &nbsp; <a href="/accounts/{{$Account->id}}" class="call-to-action"><b>EDIT</b></a>
         </article>
         @endforeach
     @endif

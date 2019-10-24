@@ -1,7 +1,7 @@
 @extends('layouts.main')
 @section('content')
 
-    <div class="" style="padding: 30px 0px; background-color: #121212; color: #fff;">
+    <div style="padding: 30px 0px; background-color: #121212; color: #fff;">
         <h1>MY EXPENSES</h1>
         <article>
             <h1>HOW DO I SPEND MY MONEY?</h1>  
@@ -17,28 +17,36 @@
 
         <article class="account">
             <h1>TODAY</h1>
-            <p>Kshs. 1000.00 &nbsp; <a href="#" class="call-to-action"><b>+</b></a>
+            {{-- <p>My {{ucFirst($Account->acc_name)}} Account<br><b>Kshs. {{number_format($Account->amount,2,".",",")}}</b> --}}
+            <p>Amount Spent Today<br>Kshs. 1000.00
+            <br><br>
+            <p><a href="#" class="call-to-action"><b>VIEW</b></a> &nbsp; <a href="#" class="call-to-action"><b>EDIT</b></a>
         </article>
 
         <article class="account">
             <h1>THIS WEEK</h1>
-            <p>Kshs. 3000.00 &nbsp; <a href="#" class="call-to-action"><b>+</b></a>
+            <p>Amount Spent In The Week<br>Kshs. 3000.00
+            <br><br>
+            <p><a href="#" class="call-to-action"><b>VIEW</b></a> &nbsp; <a href="#" class="call-to-action"><b>EDIT</b></a>
         </article>
 
         <article class="account">
             <h1>THIS MONTH</h1>
-            <p>Kshs. 4500.00 &nbsp; <a href="#" class="call-to-action"><b>+</b></a>
+            <p>Amount Spent In The Month<br>Kshs. 4500.00
+            <br><br>
+            <p><a href="#" class="call-to-action"><b>VIEW</b></a> &nbsp; <a href="#" class="call-to-action"><b>EDIT</b></a>
         </article>
     </div>  
 
-    <div class="" style="padding: 30px 0px;">
+    <div style="padding: 30px 0px;">
         <article>
-            <h1>HOW DO I SPEND MY MONEY?</h1>  
+            <h1>WHAT DO I SPEND MY MONEY ON?</h1>  
             <div style="max-width: 500px; overflow:hidden; margin: 50px auto;">
                 <canvas id="doughChart" width="10px"></canvas>    
             </div>
         </article>    
  <script>
+        
         let line= document.getElementById('linechart').getContext('2d');
 		let lineChart = new Chart(line,{
 		type:'line',

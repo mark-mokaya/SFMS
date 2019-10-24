@@ -38,6 +38,7 @@ class CategoriesController extends Controller
     {
         $this->validate($request, [
             'category_name' => 'required',
+            'description' => 'required'
          ]);
 
          //Create category

@@ -17,7 +17,9 @@
         @foreach ($Budgets as $Budget)
         <article class="budget">
             <h1>{{strtoupper($Budget->budget_name)}}</h1>
-        <p>Kshs. {{number_format($Budget->amount,2,".",",")}} &nbsp; <a href="/budgets/{{$Budget->id}}" class="call-to-action"><b>+</b></a>
+            <p>My Budget for {{ucFirst($Budget->budget_name)}}<br><b>Kshs. {{number_format($Budget->amount,2,".",",")}}</b>
+                <br><br>
+            <p><a href="/budgets/{{$Budget->id}}" class="call-to-action"><b>VIEW</b></a> &nbsp; <a href="/budgets/{{$Budget->id}}" class="call-to-action"><b>EDIT</b></a>
         </article>
         @endforeach
     @endif

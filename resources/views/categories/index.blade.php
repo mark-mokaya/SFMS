@@ -15,9 +15,11 @@
         </article>
 
         @foreach ($Categories as $Category)
-        <article class="account">
+        <article class="account">                  
             <h1>{{strtoupper($Category->category_name)}}</h1>
-            <p>{{ucFirst($Category->description)}} &nbsp; <a href="/categories/{{$Category->id}}" class="call-to-action"><b>+</b></a>
+            <p>Money Spent on {{ucFirst($Category->category_name)}}
+            <br><br>
+            <p><a href="/categories/{{$Category->id}}" class="call-to-action"><b>VIEW</b></a> &nbsp; <a href="/categories/{{$Category->id}}" class="call-to-action"><b>EDIT</b></a>
         </article>
         @endforeach
     @endif

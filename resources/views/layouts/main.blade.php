@@ -33,8 +33,6 @@
 		@include('inc.messages')
 		
         @yield('content')
-		<br><br><br>
-		
         <footer>
 			<div class="links">
 				<ul>
