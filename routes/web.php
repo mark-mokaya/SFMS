@@ -49,13 +49,6 @@ Route::get('/stats', function () {
 
 Route::get('/home', 'PagesController@home');
 
-Route::get('/expense', 'PagesController@expense');
-
-Route::get('/addExpense', 'PagesController@addExpense');
-
-Route::get('/addReceipt', 'PagesController@addReceipt');
-
-
 
 //Routing - Other Controllers
 

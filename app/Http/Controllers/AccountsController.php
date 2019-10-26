@@ -44,10 +44,10 @@ class AccountsController extends Controller
 
          //Create Account
          $account = new Account;
-         $account->acc_name = $request->input('account_name');
-         $account->acc_type = $request->input('account_type');
+         $account->acc_name = ucfirst($request->input('account_name'));
+         $account->acc_type = ucfirst($request->input('account_type'));
          $account->amount = $request->input('amount');
-         $account->description = $request->input('description');
+         $account->description = ucfirst($request->input('description'));
          $account->save();
          return redirect('/accounts')->with('success', 'New Account Created');
     }
@@ -72,7 +72,8 @@ class AccountsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $account = Account::find($id);
+        return view('accounts.edit')->with('account', $account);
     }
 
     /**
@@ -84,7 +85,20 @@ class AccountsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'account_name' => 'required',
+            'account_type' => 'required',
+            'amount'  => 'required'
+         ]);
+
+         //Update Account
+         $account = Account::find($id);
+         $account->acc_name = ucfirst($request->input('account_name'));
+         $account->acc_type = ucfirst($request->input('account_type'));
+         $account->amount = $request->input('amount');
+         $account->description = ucfirst($request->input('description'));
+         $account->save();
+         return redirect('/accounts')->with('success', $account->acc_name.' Account Updated');
     }
 
     /**
@@ -95,6 +109,8 @@ class AccountsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $account = Account::find($id);
+        $account->delete();
+        return redirect('/accounts')->with('success', $account->acc_name.' Account Deleted');
     }
 }

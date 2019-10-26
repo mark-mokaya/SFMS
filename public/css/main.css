@@ -60,7 +60,7 @@ nav .log-reg-btns{
 .account, .budget{
     display: inline-block;
 	min-width: 200px;
-	min-height: 200px;
+	min-height: 225px;
     padding: 20px;
     margin: 20px;
     overflow: hidden;
@@ -142,7 +142,7 @@ section{
 	margin: 0px auto;
 }
 
-.modal form input,.modal form select{
+.modal form input{
 	height: 25px;
 	width: 400px;
 	padding: 10px;
@@ -154,9 +154,12 @@ section{
 .modal form select{
 	height: 45px;
 	width: 420px;
+	padding: 10px;
 	border-radius: 5px;
 	border: none;
 	outline: none;
+	margin-left: 60px;
+	margin-right: 10px;
 }
 
 .modal form input[type="submit"]{
@@ -195,3 +198,65 @@ textarea{
 .success{
 	color: #27ae60;
 }
+
+article form{
+	text-align: right;
+	margin-bottom: -20px;
+	padding: 0px;
+}
+
+article form input[type = "submit"]{
+	background-color: #fff;
+	color: #000;
+	border: none;
+	border-radius: 100px;
+	padding: 10px 15px;
+	border: 3px solid #000;
+	font-weight: bold;
+}
+
+article form input[type = "submit"]:hover{
+	background-color: #000;
+	color:   #6666B3;
+}
+
+/* Style the tab */
+.tab {
+	overflow: hidden;
+	border: 1px solid #ccc;
+	background-color: #f1f1f1;
+  }
+  
+  /* Style the buttons that are used to open the tab content */
+  .tab button {
+	background-color: inherit;
+	float: left;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	padding: 14px 16px;
+	transition: 0.3s;
+  }
+  
+  /* Change background color of buttons on hover */
+  .tab button:hover {
+	background-color: #ddd;
+  }
+  
+  /* Create an active/current tablink class */
+  .tab button.active {
+	background-color: #ccc;
+  }
+  
+  /* Style the tab content */
+  .tabcontent {
+	display: none;
+	padding: 6px 12px;
+	border: 1px solid #ccc;
+	border-top: none;
+  }
+
+ 
+  @media(max-width:960px) and (min-width: 640){
+	
+  }

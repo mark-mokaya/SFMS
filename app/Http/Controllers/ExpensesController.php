@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use DB;
 use App\Expense;
+use App\Category;
 
 class ExpensesController extends Controller
 {
@@ -15,8 +16,9 @@ class ExpensesController extends Controller
      */
     public function index()
     {
-        $expenses = Expense::all();
-        return view('expenses.index')->with('Expenses', $expenses);
+        $expenses = Expense::orderBy('amount', 'desc')->take(5)->get();
+        $categories = Category::all();
+        return view('expenses.index',['Expenses' => $expenses,'Categories' => $categories]);
     }
 
     /**
@@ -28,7 +30,7 @@ class ExpensesController extends Controller
     {
         $Accounts = DB::table('accounts')->select('id','acc_name')->get();
         $Categories = DB::table('categories')->select('id','category_name')->get();
-        return view('expenses.create')->with('Accounts', $Accounts)->with('Categories', $Categories);
+        return view('expenses.create', ['Accounts' => $Accounts, 'Categories' => $Categories]);
     }
 
     /**
@@ -47,7 +49,7 @@ class ExpensesController extends Controller
 
          //Create expense
          $expense = new Expense;
-         $expense->category_id = 1;
+         $expense->category_id = $request->input('category');;
          $expense->acc_id = $request->input('account_name');
          $expense->amount = $request->input('amount');
          $expense->save();

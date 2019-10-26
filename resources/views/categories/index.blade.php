@@ -15,11 +15,16 @@
         </article>
 
         @foreach ($Categories as $Category)
-        <article class="account">                  
+        <article class="account">    
+            {!!Form::open(['action' => ['CategoriesController@destroy', $Category->id, 'method'=>'POST']])!!}
+                {{Form::hidden('_method', 'DELETE')}}
+                {{Form::submit('X')}}
+            {!!Form::close()!!}              
             <h1>{{strtoupper($Category->category_name)}}</h1>
             <p>Money Spent on {{ucFirst($Category->category_name)}}
             <br><br>
-            <p><a href="/categories/{{$Category->id}}" class="call-to-action"><b>VIEW</b></a> &nbsp; <a href="/categories/{{$Category->id}}" class="call-to-action"><b>EDIT</b></a>
+            <p><a href="/categories/{{$Category->id}}" class="call-to-action"><b>VIEW</b></a> &nbsp; 
+                <a href="/categories/{{$Category->id}}/edit" class="call-to-action"><b>EDIT</b></a>
         </article>
         @endforeach
     @endif

@@ -43,7 +43,7 @@ class BudgetsController extends Controller
 
          //Create Budget
          $budget = new Budget;
-         $budget->budget_name = $request->input('budget_name');
+         $budget->budget_name = ucfirst($request->input('budget_name'));
          $budget->amount = $request->input('amount');
          $budget->description = $request->input('description');
          $budget->save();
@@ -70,7 +70,8 @@ class BudgetsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $budget = Budget::find($id);
+        return view('budgets.edit')->with('budget', $budget);
     }
 
     /**
@@ -82,7 +83,18 @@ class BudgetsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'budget_name' => 'required',
+            'amount'  => 'required'
+         ]);
+
+         //Update Budget
+         $budget = Budget::find($id);
+         $budget->budget_name = ucfirst($request->input('budget_name'));
+         $budget->amount = $request->input('amount');
+         $budget->description = ucfirst($request->input('description'));
+         $budget->save();
+         return redirect('/budgets')->with('success', $budget->budget_name.' Budget Updated');
     }
 
     /**
@@ -93,6 +105,8 @@ class BudgetsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $budget = Budget::find($id);
+        $budget->delete();
+        return redirect('/budgets')->with('success', $budget->budget_name.' Budget Deleted');
     }
 }

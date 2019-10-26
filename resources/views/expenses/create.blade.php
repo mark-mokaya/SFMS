@@ -11,7 +11,7 @@
                         $list[$Category->id] = $Category->category_name;
                     }
                 ?>
-            {{Form::select('category', $list, null, ['placeholder' => ''])}}</p>
+            {{Form::select('category', $list, null, ['placeholder' => ''])}} <a href="/categories/create" class="call-to-action"><b>+</b></a></p>
 
             <p>{{Form::label('account_name','Account Name')}}<br>
                 <?php 
@@ -20,7 +20,7 @@
                         $list[$Account->id] = $Account->acc_name;
                     }
                 ?>
-            {{Form::select('account_name', $list, null, ['placeholder' => ''])}}</p>
+            {{Form::select('account_name', $list, null, ['placeholder' => ''])}} <a href="/accounts/create" class="call-to-action"><b>+</b></a></p>
             
             <p>{{Form::label('amount','Amount')}}<br>
             {{Form::number('amount', '', ['step'=>'0.01', 'min'=>'0'])}}</p>

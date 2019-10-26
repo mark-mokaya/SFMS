@@ -7,7 +7,7 @@
 				{{Form::text('category_name', '')}}</p>
 				
 				<p>{{Form::label('description','Description')}}<br>
-				{{Form::textarea('description', 'Money spent on...', ['cols' => '43', 'rows' => '5', 'style' => 'resize:none'])}}</p>
+				{{Form::textarea('description', 'Money spent on...', ['cols' => '43', 'rows' => '5', 'style' => 'resize:none; text-align: center;'])}}</p>
 
 				<p>{{Form::submit('ADD CATEGORY')}}</p>
 

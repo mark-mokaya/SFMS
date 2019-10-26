@@ -43,10 +43,10 @@ class CategoriesController extends Controller
 
          //Create category
          $category = new Category;
-         $category->category_name = $request->input('category_name');
-         $category->description = $request->input('description');
+         $category->category_name = ucfirst($request->input('category_name'));
+         $category->description = ucfirst($request->input('description'));
          $category->save();
-         return redirect('/categories')->with('success', 'New Category added');
+         return redirect('/categories')->with('success', 'New Category Added');
     }
 
     /**
@@ -69,7 +69,8 @@ class CategoriesController extends Controller
      */
     public function edit($id)
     {
-        //
+        $category = Category::find($id);
+        return view('categories.edit')->with('category', $category);
     }
 
     /**
@@ -81,7 +82,17 @@ class CategoriesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'category_name' => 'required',
+            'description' => 'required'
+         ]);
+
+         //Create category
+         $category = Category::find($id);
+         $category->category_name = ucfirst($request->input('category_name'));
+         $category->description = ucfirst($request->input('description'));
+         $category->save();
+         return redirect('/categories')->with('success', $category->category_name.' Category Updated');
     }
 
     /**
@@ -92,6 +103,8 @@ class CategoriesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $category = Category::find($id);
+        $category->delete();
+        return redirect('/categories')->with('success', $category->category_name.' Category Deleted');
     }
 }
