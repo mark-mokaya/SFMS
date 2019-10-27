@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use DB;
 use App\Account;
 
 class AccountsController extends Controller
@@ -36,7 +37,9 @@ class AccountsController extends Controller
      */
     public function store(Request $request)
     {
+
          $this->validate($request, [
+            'user_id' => 'required',
             'account_name' => 'required',
             'account_type' => 'required',
             'amount'  => 'required'
@@ -44,6 +47,7 @@ class AccountsController extends Controller
 
          //Create Account
          $account = new Account;
+         $account->user_id = $request->input('user_id');
          $account->acc_name = ucfirst($request->input('account_name'));
          $account->acc_type = ucfirst($request->input('account_type'));
          $account->amount = $request->input('amount');
@@ -61,7 +65,9 @@ class AccountsController extends Controller
     public function show($id)
     {
         $account = Account::find($id);
-        return view('accounts.show')->with('account', $account);
+        $expenses = DB::select("SELECT * FROM expenses WHERE acc_id = '$id' ORDER BY amount DESC");
+        $categories = DB::select("SELECT * FROM categories");
+        return view('accounts.show',['Account' => $account, 'Expenses' => $expenses, 'Categories' => $categories]);
     }
 
     /**
@@ -72,8 +78,9 @@ class AccountsController extends Controller
      */
     public function edit($id)
     {
+        $accounts = DB::Select("SELECT * FROM accounts WHERE id != '$id'");
         $account = Account::find($id);
-        return view('accounts.edit')->with('account', $account);
+        return view('accounts.edit',['account'=> $account, 'Accounts'=>$accounts]);
     }
 
     /**
@@ -85,20 +92,78 @@ class AccountsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $this->validate($request, [
-            'account_name' => 'required',
-            'account_type' => 'required',
-            'amount'  => 'required'
-         ]);
+        $transaction_type = $request->input('transaction_type');
 
-         //Update Account
-         $account = Account::find($id);
-         $account->acc_name = ucfirst($request->input('account_name'));
-         $account->acc_type = ucfirst($request->input('account_type'));
-         $account->amount = $request->input('amount');
-         $account->description = ucfirst($request->input('description'));
-         $account->save();
-         return redirect('/accounts')->with('success', $account->acc_name.' Account Updated');
+        switch($transaction_type){
+            case 'edit_account':
+                $this->validate($request, [
+                    'user_id' => 'required',
+                    'account_name' => 'required',
+                    'account_type' => 'required',
+                    'amount'  => 'required',
+                ]);
+        
+                //Update Account
+                $account = Account::find($id);
+                $account->user_id = $request->input('user_id');
+                $account->acc_name = ucfirst($request->input('account_name'));
+                $account->acc_type = ucfirst($request->input('account_type'));
+                $account->amount = $request->input('amount');
+                $account->description = ucfirst($request->input('description'));
+                $account->save();
+                return redirect('/accounts')->with('success', $account->acc_name.' Account Updated');
+            break;
+
+            case 'add_income':
+                $this->validate($request, [
+                    'user_id' => 'required',
+                    'account_name' => 'required',
+                    'amount'  => 'required',
+                ]);
+        
+                //Update Account
+                $account = Account::find($id);
+                // $account->user_id = $request->input('user_id');
+                $account->amount += $request->input('amount');
+                $account->save();
+                return redirect('/accounts')->with('success', $account->acc_name.' Account Updated');
+            break;
+
+            case 'make_transfer':
+                $this->validate($request, [
+                    'user_id' => 'required',
+                    'source_account_name' => 'required',
+                    'receiver_account_name' => 'required',
+                    'amount'  => 'required',
+                ]);
+        
+                //Update Account
+                $source_account = Account::find($id);
+                $receiver_account = Account::find($request->input('receiver_account_name'));
+
+                //$account->user_id = $request->input('user_id');
+
+                if($source_account->amount > $request->input('amount')){
+                    $source_account->amount -= $request->input('amount');
+                    $receiver_account->amount += $request->input('amount');
+                    $source_account->save();
+                    $receiver_account->save();
+                    return redirect('/accounts')->with('success', $source_account->acc_name." and ".$receiver_account->acc_name." Accounts Updated");
+                }else{
+                    return redirect('/accounts')->with('error', $source_account->acc_name.' Account has Insufficient Funds');
+                }
+         
+            break;
+
+            default:
+                return redirect('/accounts')->with('error', 'An Unexpected Error has occured. Please try again');
+            break;
+
+
+
+        }
+
+        
     }
 
     /**

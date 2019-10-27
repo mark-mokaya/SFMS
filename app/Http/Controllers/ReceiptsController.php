@@ -34,7 +34,7 @@ class ReceiptsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //$receipt->user_id = $request->input('user_id');
     }
 
     /**

@@ -3,6 +3,9 @@
 	<h1>EDIT CATEGORY</h1>
 		<div class="modal" id="reg-Modal">
 			{!! Form::open(['action' => ['CategoriesController@update', $category->id], 'method' => 'POST']) !!}
+
+				{{Form::hidden('user_id', Auth::user()->id)}}
+
 				<p>{{Form::label('category_name','Category Name')}}<br>
 				{{Form::text('category_name', $category->category_name)}}</p>
 				

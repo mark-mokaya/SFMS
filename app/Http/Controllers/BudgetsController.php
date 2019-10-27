@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Budget;
+use DB;
 
 class BudgetsController extends Controller
 {
@@ -25,7 +26,8 @@ class BudgetsController extends Controller
      */
     public function create()
     {
-        return view('budgets.create');
+        $categories = DB::select("SELECT * FROM categories");
+        return view('budgets.create', ['Categories' => $categories]);
     }
 
     /**
@@ -36,13 +38,18 @@ class BudgetsController extends Controller
      */
     public function store(Request $request)
     {
+        return($request);
+
         $this->validate($request, [
+            'user_id' => 'required',
             'budget_name' => 'required',
-            'amount'  => 'required'
+            'amount'  => 'required',
+            'categories'  => 'required'
          ]);
 
          //Create Budget
          $budget = new Budget;
+         $budget->user_id = $request->input('user_id');
          $budget->budget_name = ucfirst($request->input('budget_name'));
          $budget->amount = $request->input('amount');
          $budget->description = $request->input('description');
@@ -59,7 +66,10 @@ class BudgetsController extends Controller
     public function show($id)
     {
         $budget = Budget::find($id);
-        return view('budgets.show')->with('budget', $budget);
+        // $expenses = DB::select("SELECT * FROM expenses WHERE budget_id = '$id' ORDER BY amount DESC");
+        $expenses = DB::select("SELECT * FROM expenses ORDER BY amount DESC");
+        $categories = DB::select("SELECT * FROM categories"); 
+        return view('budgets.show',['budget' => $budget, 'Expenses' => $expenses, 'Categories' => $categories]);
     }
 
     /**
@@ -71,7 +81,8 @@ class BudgetsController extends Controller
     public function edit($id)
     {
         $budget = Budget::find($id);
-        return view('budgets.edit')->with('budget', $budget);
+        $categories = DB::select("SELECT * FROM categories");
+        return view('budgets.edit',['budget' => $budget, 'Categories' => $categories]);
     }
 
     /**
@@ -84,12 +95,14 @@ class BudgetsController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request, [
+            'user_id'=>'required',
             'budget_name' => 'required',
             'amount'  => 'required'
          ]);
 
          //Update Budget
          $budget = Budget::find($id);
+         $budget->user_id = $request->input('user_id');
          $budget->budget_name = ucfirst($request->input('budget_name'));
          $budget->amount = $request->input('amount');
          $budget->description = ucfirst($request->input('description'));

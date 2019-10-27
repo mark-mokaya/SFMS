@@ -37,12 +37,14 @@ class CategoriesController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
+            'user_id' => 'required',
             'category_name' => 'required',
             'description' => 'required'
          ]);
 
          //Create category
          $category = new Category;
+         $category->user_id = $request->input('user_id');
          $category->category_name = ucfirst($request->input('category_name'));
          $category->description = ucfirst($request->input('description'));
          $category->save();
@@ -57,8 +59,7 @@ class CategoriesController extends Controller
      */
     public function show($id)
     {
-        $category = Category::find($id);
-        return view('categories.show')->with('category', $category);
+        //
     }
 
     /**
@@ -83,12 +84,14 @@ class CategoriesController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request, [
+            'user_id' => 'required',
             'category_name' => 'required',
             'description' => 'required'
          ]);
 
          //Create category
          $category = Category::find($id);
+         $category->user_id = $request->input('user_id');
          $category->category_name = ucfirst($request->input('category_name'));
          $category->description = ucfirst($request->input('description'));
          $category->save();

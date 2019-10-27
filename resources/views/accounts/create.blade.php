@@ -2,7 +2,10 @@
 @section('content')
 	<h1>ADD ACCOUNT</h1>
 		<div class="modal" id="reg-Modal">
-			{!! Form::open(['action' => 'AccountsController@store', 'method' => 'POST']) !!}
+				{!! Form::open(['action' => 'AccountsController@store', 'method' => 'POST']) !!}
+
+				{{Form::hidden('user_id', Auth::user()->id)}}
+				
 				<p>{{Form::label('account_name','Account Name')}}<br>
 				{{Form::text('account_name', '')}}</p>
 				

@@ -2,12 +2,14 @@
 @section('content')		
 	<div class="modal" id="login-modal">
 	<h1>LOGIN</h1>
-	<form action="/home" method="get">
+	<form action="{{route('login')}}" method="post">
+		@csrf
+		
 		<p><label>Username</label><br>
-		<input type="text" name="user"></p>
+		<input type="text" name="username"></p>
 
 		<p><label>Password</label><br>
-		<input type="password" name="pass"></p>
+		<input type="password" name="password"></p>
 
 		<p>Don't have an account? <a href="/register">Register</a></p>
 

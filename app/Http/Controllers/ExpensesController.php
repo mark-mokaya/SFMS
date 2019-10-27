@@ -42,6 +42,7 @@ class ExpensesController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
+            'user_id' => 'required',
             'category' => 'required',
             'account_name' => 'required',
             'amount'  => 'required'
@@ -49,6 +50,7 @@ class ExpensesController extends Controller
 
          //Create expense
          $expense = new Expense;
+         $expense->user_id = $request->input('user_id');
          $expense->category_id = $request->input('category');;
          $expense->acc_id = $request->input('account_name');
          $expense->amount = $request->input('amount');
@@ -76,7 +78,10 @@ class ExpensesController extends Controller
      */
     public function edit($id)
     {
-        //
+        $expense = Expense::find($id);
+        $Accounts = DB::table('accounts')->select('id','acc_name')->get();
+        $Categories = DB::table('categories')->select('id','category_name')->get();
+        return view('expenses.edit', ['Expense'=> $expense, 'Accounts' => $Accounts, 'Categories' => $Categories]);
     }
 
     /**
@@ -88,7 +93,7 @@ class ExpensesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        //$expense->user_id = $request->input('user_id');
     }
 
     /**

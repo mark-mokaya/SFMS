@@ -21,10 +21,9 @@
                 {{Form::submit('X')}}
             {!!Form::close()!!}              
             <h1>{{strtoupper($Category->category_name)}}</h1>
-            <p>Money Spent on {{ucFirst($Category->category_name)}}
+            <p>{{ucFirst($Category->description)}}
             <br><br>
-            <p><a href="/categories/{{$Category->id}}" class="call-to-action"><b>VIEW</b></a> &nbsp; 
-                <a href="/categories/{{$Category->id}}/edit" class="call-to-action"><b>EDIT</b></a>
+            <p><a href="/categories/{{$Category->id}}/edit" class="call-to-action"><b>&nbsp; EDIT &nbsp;</b></a>
         </article>
         @endforeach
     @endif

@@ -84,3 +84,5 @@ Route::get('/about', function () {
 Route::redirect('/ok', '/');
 
 */
+
+Auth::routes();
