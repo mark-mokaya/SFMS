@@ -20,7 +20,7 @@ class CreateExpensesTable extends Migration
             $table->integer('acc_id');
             $table->double('amount', 8, 2);
             $table->mediumText('receipt')->nullable();
-            $table->dateTime('date_created');
+            $table->date('date_created')->default(date("Y-m-d"));
             $table->timestamps();
         });
     }

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>SFMS-My Accounts</title>
+	<title>SFMS</title>
 	<meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -21,21 +21,23 @@
 					<li><a href="/categories">Categories</a></li>
 				</ul>
 			</div>
-
+			
 			<div class="log-reg-btns">
 				@guest
-					<li><a href="{{ route('login') }}">Log In</a></li>
-					@if (Route::has('register'))
-						<li><a href="{{ route('register') }}" class="call-to-action">Sign Up</a></li>
-					@endif
+					<ul>
+						<li><a href="{{ route('login') }}">Log In</a></li>
+						@if (Route::has('register'))
+							<li><a href="{{ route('register')}}" class="call-to-action">Sign Up</a></li>
+						@endif
+					</ul>
 				@else 
-					</li>
-						<form id="logout-form" action="{{ route('logout') }}" method="POST">
-							@csrf
-							<a href="/home" style = 'padding: 0px; margin: 0px; text-decoration: underline;'>{{ Auth::user()->first_name }}</a> is logged in.</a>
-							<a  href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
-						</form>
-					</li>
+				<ul>
+					<form id="logout-form" action="{{ route('logout')}}" method="POST">
+						@csrf
+						<a href="/home" style = 'padding: 0px; margin: 0px; text-decoration: underline;'>{{ Auth::user()->first_name }}</a> is logged in.</a>
+						<a  href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
+					</form>
+				</ul>
 				@endguest
 			</div>
 		</nav>

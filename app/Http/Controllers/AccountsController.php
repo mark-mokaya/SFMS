@@ -15,7 +15,7 @@ class AccountsController extends Controller
      */
     public function index()
     {
-        $Accounts = Account::all();
+        $Accounts = Account::all()->where('user_id', auth()->user()->id);
         return view('accounts.index')->with('Accounts', $Accounts);
     }
 
@@ -39,7 +39,6 @@ class AccountsController extends Controller
     {
 
          $this->validate($request, [
-            'user_id' => 'required',
             'account_name' => 'required',
             'account_type' => 'required',
             'amount'  => 'required'
@@ -47,7 +46,7 @@ class AccountsController extends Controller
 
          //Create Account
          $account = new Account;
-         $account->user_id = $request->input('user_id');
+         $account->user_id = auth()->user()->id;
          $account->acc_name = ucfirst($request->input('account_name'));
          $account->acc_type = ucfirst($request->input('account_type'));
          $account->amount = $request->input('amount');
@@ -64,9 +63,10 @@ class AccountsController extends Controller
      */
     public function show($id)
     {
+        $user_id = auth()->user()->id;
         $account = Account::find($id);
-        $expenses = DB::select("SELECT * FROM expenses WHERE acc_id = '$id' ORDER BY amount DESC");
-        $categories = DB::select("SELECT * FROM categories");
+        $expenses = DB::select("SELECT * FROM expenses WHERE acc_id = '$id' AND user_id = '$user_id' ORDER BY amount DESC");
+        $categories = DB::select("SELECT * FROM categories WHERE user_id = '$user_id'");
         return view('accounts.show',['Account' => $account, 'Expenses' => $expenses, 'Categories' => $categories]);
     }
 
@@ -78,7 +78,8 @@ class AccountsController extends Controller
      */
     public function edit($id)
     {
-        $accounts = DB::Select("SELECT * FROM accounts WHERE id != '$id'");
+        $user_id = auth()->user()->id;
+        $accounts = DB::Select("SELECT * FROM accounts WHERE id != '$id' AND user_id = '$user_id'");
         $account = Account::find($id);
         return view('accounts.edit',['account'=> $account, 'Accounts'=>$accounts]);
     }
@@ -97,7 +98,6 @@ class AccountsController extends Controller
         switch($transaction_type){
             case 'edit_account':
                 $this->validate($request, [
-                    'user_id' => 'required',
                     'account_name' => 'required',
                     'account_type' => 'required',
                     'amount'  => 'required',
@@ -105,7 +105,6 @@ class AccountsController extends Controller
         
                 //Update Account
                 $account = Account::find($id);
-                $account->user_id = $request->input('user_id');
                 $account->acc_name = ucfirst($request->input('account_name'));
                 $account->acc_type = ucfirst($request->input('account_type'));
                 $account->amount = $request->input('amount');
@@ -116,14 +115,12 @@ class AccountsController extends Controller
 
             case 'add_income':
                 $this->validate($request, [
-                    'user_id' => 'required',
                     'account_name' => 'required',
                     'amount'  => 'required',
                 ]);
         
                 //Update Account
                 $account = Account::find($id);
-                // $account->user_id = $request->input('user_id');
                 $account->amount += $request->input('amount');
                 $account->save();
                 return redirect('/accounts')->with('success', $account->acc_name.' Account Updated');
@@ -131,7 +128,6 @@ class AccountsController extends Controller
 
             case 'make_transfer':
                 $this->validate($request, [
-                    'user_id' => 'required',
                     'source_account_name' => 'required',
                     'receiver_account_name' => 'required',
                     'amount'  => 'required',
@@ -158,12 +154,7 @@ class AccountsController extends Controller
             default:
                 return redirect('/accounts')->with('error', 'An Unexpected Error has occured. Please try again');
             break;
-
-
-
-        }
-
-        
+        } 
     }
 
     /**

@@ -22,22 +22,22 @@
 </div>
 
 <div class="log-reg-btns"> 
-    <ul>
+    
         @guest
-            <li><a href="{{ route('login') }}">Log In</a></li>
-            @if (Route::has('register'))
-                <li><a href="{{ route('register') }}" class="call-to-action">Sign Up</a></li>
-            @endif
+            <ul>
+                <li><a href="{{ route('login') }}">Log In</a></li>
+                @if (Route::has('register'))
+                    <li><a href="{{ route('register') }}" class="call-to-action">Sign Up</a></li>
+                @endif
+            </ul>
         @else 
-            </li>
-                <form id="logout-form" action="{{ route('logout') }}" method="POST">
-                    @csrf
-                    <a href="/home" style = 'padding: 0px; margin: 0px; text-decoration: underline;'>{{ Auth::user()->first_name }}</a> is logged in.</a>
-                    <a  href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
-                </form>
-            </li>
+            <form id="logout-form" action="{{ route('logout') }}" method="POST">
+                @csrf
+                <a href="/home" style = 'padding: 0px; margin: 0px; text-decoration: underline;'>{{ Auth::user()->first_name }}</a> is logged in.</a>
+                <a  href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
+            </form>
         @endguest
-    </ul>
+    
 </div>
 </nav>
         @include('inc.messages')

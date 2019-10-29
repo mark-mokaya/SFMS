@@ -12,8 +12,7 @@
         <h1>EDIT ACCOUNT</h1>
         <div class="modal" id="reg-Modal">
             {!! Form::open(['action' => ['AccountsController@update', $account->id], 'method' => 'POST']) !!}
-                {{Form::hidden('user_id', Auth::user()->id)}}
-
+               
                 <p>{{Form::label('account_name','Account Name')}}<br>
                 {{Form::text('account_name', $account->acc_name)}}</p>
                 
@@ -40,8 +39,6 @@
             <h1>ADD INCOME</h1>
             <div class="modal" id="reg-Modal">
                 {!! Form::open(['action' => ['AccountsController@update', $account->id], 'method' => 'POST']) !!}
-                
-                    {{Form::hidden('user_id', Auth::user()->id)}}
 
                     <p>{{Form::label('account_name','Account Name')}}<br>
                     {{Form::text('account_name', $account->acc_name, ['readonly'=> true])}}</p>
@@ -63,8 +60,6 @@
                 <h1>MAKE TRANSFER</h1>
                 <div class="modal" id="reg-Modal">
                     {!! Form::open(['action' => ['AccountsController@update', $account->id], 'method' => 'POST']) !!}
-
-                        {{Form::hidden('user_id', Auth::user()->id)}}
 
                         <p>{{Form::label('source_account_name','Transfer From')}}<br>
                         {{Form::text('source_account_name', $account->acc_name, ['readonly'=> true])}}</p>

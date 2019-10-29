@@ -52,7 +52,7 @@
         
         //Global options
         Chart.defaults.global.defaultFontSize = 16;
-        let doughChart = new Chart(bar,{
+        let barChart = new Chart(bar,{
         type:'bar',
         data:{ 
         labels:groups,

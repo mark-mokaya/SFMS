@@ -4,13 +4,11 @@
 		<div class="modal" id="reg-Modal">
 			{!! Form::open(['action' => 'CategoriesController@store', 'method' => 'POST']) !!}
 
-				{{Form::hidden('user_id', Auth::user()->id)}}
-
 				<p>{{Form::label('category_name','Category Name')}}<br>
 				{{Form::text('category_name', '')}}</p>
 				
 				<p>{{Form::label('description','Description')}}<br>
-				{{Form::textarea('description', 'Money spent on...', ['cols' => '43', 'rows' => '5', 'style' => 'resize:none; text-align: center;'])}}</p>
+				{{Form::textarea('description', 'Money spent on ', ['cols' => '43', 'rows' => '5', 'style' => 'resize:none; text-align: center;'])}}</p>
 
 				<p>{{Form::submit('ADD CATEGORY')}}</p>
 

@@ -9,7 +9,9 @@
                 <canvas id="linechart" width="10px"></canvas>    
             </div>
         </article>
+    </div>
 
+    <div style="padding: 30px 0px;">
         <article class="account">
             <h1>Add Expense</h1>
             <p><a href="/expenses/create" class="call-to-action"><b>+</b></a>
@@ -20,21 +22,21 @@
             {{-- <p>My {{ucFirst($Account->acc_name)}} Account<br><b>Kshs. {{number_format($Account->amount,2,".",",")}}</b> --}}
             <p>Amount Spent Today<br>Kshs. 1000.00
             <br><br>
-            <p><a href="#" class="call-to-action"><b>VIEW</b></a> &nbsp; <a href="#" class="call-to-action"><b>EDIT</b></a>
+            <p><a href="/expenses/{{date('Y-m-d')}}" class="call-to-action"><b>&nbsp; VIEW &nbsp;</b></a>
         </article>
 
         <article class="account">
-            <h1>THIS WEEK</h1>
-            <p>Amount Spent In The Week<br>Kshs. 3000.00
+            <h1>PAST 7 DAYS</h1>
+            <p>Amount Spent In The Last 7 Days<br>Kshs. 3000.00
             <br><br>
-            <p><a href="#" class="call-to-action"><b>VIEW</b></a> &nbsp; <a href="#" class="call-to-action"><b>EDIT</b></a>
+            <p><a href="/expenses/{{date('Y-m-d', strtotime('-1 week'))}}" class="call-to-action"><b>&nbsp; VIEW &nbsp;</b></a>
         </article>
 
         <article class="account">
-            <h1>THIS MONTH</h1>
-            <p>Amount Spent In The Month<br>Kshs. 4500.00
+            <h1>PAST 30 DAYS</h1>
+            <p>Amount Spent In The Last 30 Days<br>Kshs. 4500.00
             <br><br>
-            <p><a href="#" class="call-to-action"><b>VIEW</b></a> &nbsp; <a href="#" class="call-to-action"><b>EDIT</b></a>
+            <p><a href="/expenses/{{date('Y-m-d', strtotime('-1 month'))}}" class="call-to-action"><b>&nbsp; VIEW &nbsp;</b></a>
         </article>
     </div>  
 

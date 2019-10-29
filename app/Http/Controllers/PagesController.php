@@ -11,10 +11,10 @@ use App\Budget;
 class PagesController extends Controller
 {
     public function home(){
-        $accounts = Account::all()->take(4);
-        $budgets = Budget::all()->take(4);
-        $expenses = Expense::orderBy('amount', 'desc')->get();
-        $categories = Category::all();
+        $accounts = Account::all()->where('user_id', auth()->user()->id)->take(4);
+        $budgets = Budget::all()->where('user_id', auth()->user()->id)->take(4);
+        $expenses = Expense::orderBy('amount', 'desc')->where('user_id', auth()->user()->id)->get();
+        $categories = Category::all()->where('user_id', auth()->user()->id);
         return view('pages.home',['Expenses' => $expenses,'Categories' => $categories, 'Accounts' => $accounts, 'Budgets' => $budgets]);
     }
 }

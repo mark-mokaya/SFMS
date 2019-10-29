@@ -18,13 +18,19 @@
     </div> 
     <div style="padding: 30px 0px; background-color: #000; color: #fff; width: 33%; height: 600px; display:inline-block; overflow: hidden;">
         <article>
-            <h1>MY EXPENSES</h1>  
+            <h1>MY THEMES</h1>  
             <br>
-            <div style="max-width: 500px; overflow:hidden; margin: 50px auto;">
-                <canvas id="doughChart" width="10px"></canvas>    
-            </div>    
+            <div style="width:75px; height:75px; background-color: #00b894; display: inline-block;"></div>
+            <div style="width:75px; height:75px; background-color: #fff; display: inline-block;"></div>
             <br><br>
-            <a href="/expenses" class="call-to-action">SEE DETAILS</a>    
+        </article>
+        <article>
+            <h1>MY EXPENSES</h1>
+            <div style="max-width: 500px; overflow:hidden; margin: 50px auto;">
+                <canvas id="doughChart" width="10px"></canvas> 
+                <br><br>
+                <a href="/expenses" class="call-to-action">SEE DETAILS</a>     
+            </div>    
         </article>
     </div>
 

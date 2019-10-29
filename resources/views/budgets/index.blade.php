@@ -21,7 +21,7 @@
                 {{Form::submit('X')}}
             {!!Form::close()!!}
             <h1>{{strtoupper($Budget->budget_name)}}</h1>
-            <p>My Budget for {{ucFirst($Budget->budget_name)}}<br><b>Kshs. {{number_format($Budget->amount,2,".",",")}}</b>
+            <p>My Budget for {{ucFirst($Budget->budget_name)}}<br><b>Kshs. {{number_format($Budget->amount_remaining,2,".",",")}}</b>
                 <br><br>
             <p><a href="/budgets/{{$Budget->id}}" class="call-to-action"><b>VIEW</b></a> &nbsp; 
                 <a href="/budgets/{{$Budget->id}}/edit" class="call-to-action"><b>EDIT</b></a>
