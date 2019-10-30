@@ -15,15 +15,9 @@
         </article>
 
         @foreach ($Categories as $Category)
-        <article class="account">    
-            {!!Form::open(['action' => ['CategoriesController@destroy', $Category->id, 'method'=>'POST']])!!}
-                {{Form::hidden('_method', 'DELETE')}}
-                {{Form::submit('X')}}
-            {!!Form::close()!!}              
+        <article class="account">
             <h1>{{strtoupper($Category->category_name)}}</h1>
-            <p>{{ucFirst($Category->description)}}
-            <br><br>
-            <p><a href="/categories/{{$Category->id}}/edit" class="call-to-action"><b>&nbsp; EDIT &nbsp;</b></a>
+            <p>{{ucFirst($Category->description)}} &nbsp; <a href="/categories/{{$Category->id}}" class="call-to-action"><b>+</b></a>
         </article>
         @endforeach
     @endif

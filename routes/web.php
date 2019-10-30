@@ -49,6 +49,13 @@ Route::get('/stats', function () {
 
 Route::get('/home', 'PagesController@home');
 
+Route::get('/expense', 'PagesController@expense');
+
+Route::get('/addExpense', 'PagesController@addExpense');
+
+Route::get('/addReceipt', 'PagesController@addReceipt');
+
+
 
 //Routing - Other Controllers
 
@@ -100,4 +107,3 @@ $router->get('product/{id}','ProductController@updateProduct'); //for updating p
 $router->post('product/{id}','ProductController@deleteProduct');  // for deleting product
 $router->get('product','ProductController@index'); // for retrieving 
 
-Auth::routes();

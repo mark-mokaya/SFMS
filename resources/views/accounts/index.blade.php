@@ -16,16 +16,8 @@
 
         @foreach ($Accounts as $Account)
         <article class="account">
-            {!!Form::open(['action' => ['AccountsController@destroy', $Account->id, 'method'=>'POST']])!!}
-                {{Form::hidden('_method', 'DELETE')}}
-                {{Form::submit('X')}}
-            {!!Form::close()!!}
             <h1>{{strtoupper($Account->acc_name)}}</h1>
-            <p>My {{ucFirst($Account->acc_name)}} Account<br><b>Kshs. {{number_format($Account->amount,2,".",",")}}</b>
-            <br><br>
-            <p><a href="/accounts/{{$Account->id}}" class="call-to-action"><b>VIEW</b></a> &nbsp; 
-                <a href="/accounts/{{$Account->id}}/edit" class="call-to-action"><b>EDIT</b></a>
-       
+            <p>Kshs. {{number_format($Account->amount,2,".",",")}} &nbsp; <a href="/accounts/{{$Account->id}}" class="call-to-action"><b>+</b></a>
         </article>
         @endforeach
     @endif

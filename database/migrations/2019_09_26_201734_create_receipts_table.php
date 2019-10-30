@@ -15,7 +15,6 @@ class CreateReceiptsTable extends Migration
     {
         Schema::create('receipts', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('user_id');
             $table->integer('expense_id');
             $table->string('category_id');
             $table->double('amount', 8, 2);
