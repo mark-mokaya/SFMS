@@ -1,7 +1,7 @@
 @extends('layouts.main')
 @section('content')
 
-<h1>{{strToUpper($Title.'\'s')}} EXPENSES</h1>
+<h1>EXPENSES FOR {{strToUpper($Title)}}</h1>
 <p><a href="/expenses">{{"<"}} Go Back</a></p>
 
 <div style="padding: 30px 0px; width: 100%; height: 600px; overflow: hidden;">

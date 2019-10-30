@@ -86,6 +86,22 @@ class ExpensesController extends Controller
      */
     public function show($period)
     {
+        $title;
+        switch($period){
+            case date('Y-m-d'):
+                $title = "Today";
+            break;
+            case date('Y-m-d', strtotime('-1 week')):
+                $title = "The last 7 days";
+            break;
+            case date('Y-m-d', strtotime('-30 days')):
+                $title = "the last 30 days";
+            break;
+            default:
+                return redirect('/expenses') ->with('error', 'An unexpected error has occured.');
+            break;
+
+        }
         $user_id = auth()->user()->id;
         $expenses = DB::table('expenses')->where('user_id', $user_id)->whereDate('date_created', '>=', $period)->get();
         $expense_categories = "";
@@ -94,7 +110,7 @@ class ExpensesController extends Controller
         }
         $expense_categories = explode(" ", $expense_categories);
         $Category = DB::table('categories')->select('category_name')->whereIn('id', $expense_categories)->get();
-        return view('expenses.show', ['Expenses' => $expenses, 'Category' => $Category]);
+        return view('expenses.show', ['Expenses' => $expenses, 'Category' => $Category, 'Title' => $title]);
     }
 
     /**

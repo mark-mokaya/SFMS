@@ -36,7 +36,7 @@
             <h1>PAST 30 DAYS</h1>
             <p>Amount Spent In The Last 30 Days<br>Kshs. 4500.00
             <br><br>
-            <p><a href="/expenses/{{date('Y-m-d', strtotime('-1 month'))}}" class="call-to-action"><b>&nbsp; VIEW &nbsp;</b></a>
+            <p><a href="/expenses/{{date('Y-m-d', strtotime('-30 days'))}}" class="call-to-action"><b>&nbsp; VIEW &nbsp;</b></a>
         </article>
     </div>  
 
