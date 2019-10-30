@@ -1,7 +1,7 @@
 @extends('layouts.main')
     @section('content')
 
-    <div style="padding: 30px 0px; width: 33%; height: 600px; display:inline-block; overflow: hidden;">
+    <div style="padding: 30px 0px 0px; width: 33%; height: 700px; display:inline-block; overflow: hidden;">
         <article>
             <h1>MY ACCOUNTS</h1>  
             <br>
@@ -16,25 +16,24 @@
             <a href="/accounts" class="call-to-action">SEE DETAILS</a>        
         </article>
     </div> 
-    <div style="padding: 30px 0px; background-color: #000; color: #fff; width: 33%; height: 600px; display:inline-block; overflow: hidden;">
-        <article>
-            <h1>MY THEMES</h1>  
-            <br>
-            <a href="#"><div style="width:75px; height:75px; background-color: #00b894; display: inline-block;"></div></a>
-            <a href="#"><div style="width:75px; height:75px; background-color: #fff; display: inline-block;"></div></a>
-            <br><br>
-        </article>
-        <article>
+    <div style="padding: 30px 0px 0px; color: #000; width: 33%; height: 700px; display:inline-block; overflow: hidden;">
+        <article style="background-color: #121212; color: #fff; overflow: auto;">
             <h1>MY EXPENSES</h1>
-            <div style="max-width: 500px; overflow:hidden; margin: 50px auto;">
+            <div style="max-width: 500px;  margin: 50px auto;">
                 <canvas id="doughChart" width="10px"></canvas> 
                 <br><br>
-                <a href="/expenses" class="call-to-action">SEE DETAILS</a>     
+                <a href="/expenses" class="call-to-action reverse">SEE DETAILS</a>     
             </div>    
         </article>
+        <article style="padding: 10px;">
+                <h1>MY THEMES</h1>  
+                <a href="#"><div style="width:75px; height:75px; background-color: #27ae60; display: inline-block;"></div></a>
+                <a href="#"><div style="width:75px; height:75px; background-color: #000; display: inline-block;"></div></a>
+                <br><br>
+            </article>
     </div>
 
-    <div style="padding: 30px 0px; width: 33%; height: 600px; display:inline-block; overflow: hidden;">
+    <div style="padding: 30px 0px 0px; width: 33%; height: 700px; display:inline-block; overflow: hidden;">
         <article>
             <h1>MY BUDGETS</h1>  
             <br>
@@ -82,9 +81,9 @@
                 data: values,
                 backgroundColor:['#FE4A49', '#FF9124','#059BFF','#FED766','#E6E6EA'],
                 borderWidth:2,
-                borderColor:'#000',
+                borderColor:'#121212',
                 hoverBorderWidth:0,
-                hoverBorderColor:'#000'
+                hoverBorderColor:'#121212'
             }]},
             options:{
                 title:{
@@ -92,7 +91,7 @@
                 },
                 legend:{
                     display:true,
-                    position: 'right',				
+                    position: 'bottom',				
                 },
                 tooltips:{
                     enable:false

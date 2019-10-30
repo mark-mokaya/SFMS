@@ -1,8 +1,9 @@
 @extends('layouts.landing')
 
 @section('content')
-			<article>
-				<h1>THIS IS THE ABOUT PAGE</h1>
-				<a href="register" class="call-to-action">GET STARTED</a>
-            </article>
+			<article class="landing">
+				<h1>THIS IS THE ABOUT PAGE</h1><br>
+				<a href="register" class="call-to-action reverse">GET STARTED</a>
+			</article>
+			<div class="landing-bg"></div>
 @endsection

@@ -16,7 +16,7 @@
                 <p>{{Form::label('categories','Categories')}}<br>
                     <div style="background-color: #ddd; width: 400px; border-radius: 5px; padding: 10px; margin: -15px 10px 0px 60px; display: inline-block;">
                         @foreach ($Categories as $Category)
-                        <span style="display: inline-block;">{{Form::checkbox('categories[]',$Category->id)}}{{$Category->category_name}}<span>
+                            <span style="display: inline-block;">{{$Category->category_name}}{{Form::checkbox('categories[]',$Category->id)}}</span>
                         @endforeach
                     </div> &nbsp; <a href="/categories/create" class="call-to-action"><b>+</b></a>
                 </p>

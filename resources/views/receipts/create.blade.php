@@ -1,7 +1,7 @@
 @extends('layouts.main')
 @section('content')
 	<h1>ADD RECEIPT</h1>
-	<div class="modal">
+	<div class="form_container">
 		<form action="" method="post">
 			<p><label>Category</label><br>
 			<input type="text" name="category"></p>

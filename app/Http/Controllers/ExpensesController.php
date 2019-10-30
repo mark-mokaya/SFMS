@@ -18,9 +18,11 @@ class ExpensesController extends Controller
      */
     public function index()
     {
-        $expenses = Expense::orderBy('amount', 'desc')->where('user_id', auth()->user()->id)->get();
+        $user_id = auth()->user()->id;
+        $expensesByCategory = DB::select("SELECT category_id, SUM(amount) amount FROM expenses WHERE user_id = '$user_id' GROUP BY category_id ORDER BY amount DESC");
+        $expensesByDate = DB::select("SELECT date_created, SUM(amount) amount  FROM expenses WHERE user_id = '$user_id' GROUP BY date_created");
         $categories = Category::all()->where('user_id', auth()->user()->id);
-        return view('expenses.index',['Expenses' => $expenses,'Categories' => $categories]);
+        return view('expenses.index',['Categories' => $categories, 'ExpensesByCategory' => $expensesByCategory, 'ExpensesByDate' => $expensesByDate]);
     }
 
     /**

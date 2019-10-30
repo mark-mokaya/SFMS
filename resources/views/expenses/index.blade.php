@@ -12,7 +12,7 @@
     </div>
 
     <div style="padding: 30px 0px;">
-        <article class="account">
+        <article class="account add">
             <h1>Add Expense</h1>
             <p><a href="/expenses/create" class="call-to-action"><b>+</b></a>
         </article>
@@ -42,7 +42,7 @@
 
     <div style="padding: 30px 0px;">
         <article>
-            <h1>WHAT DO I MOST SPEND MY MONEY ON?</h1>  
+            <h1>WHAT DO I SPEND MOST OF MY MONEY ON?</h1>  
             <div style="max-width: 500px; overflow:hidden; margin: 50px auto;">
                 <canvas id="doughChart" width="10px"></canvas>    
             </div>
@@ -72,12 +72,12 @@
 
         <?php  
             $val = [];
-            foreach ($Expenses as $Expense) { 
+            foreach ($ExpensesByCategory as $Expense) { 
                 array_push($val, $Expense->amount);
             }
             
             $cat = [];
-            foreach ($Expenses as $Expense) { 
+            foreach ($ExpensesByCategory as $Expense) { 
                 foreach ($Categories as $Category) { 
                     if ($Category->id == $Expense->category_id) { 
                         array_push($cat,$Category->category_name);
@@ -102,8 +102,8 @@
             data: values,
             backgroundColor:['#FE4A49', '#FF9124','#059BFF','#FED766','#E6E6EA'],
             borderWidth:2,
-            borderColor:'#fff',
-            hoverBorderWidth:0,
+            borderColor:'#000',
+            hoverBorderWidth:3,
             hoverBorderColor:'#000'
         }]},
         options:{
