@@ -3,44 +3,19 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\View;
+use App\Account;
+use DB;
+use App\Category;
+use App\Budget;
 
 class PagesController extends Controller
 {
-    // User Module Navigation
-    public function home($id = "No user"){
-        $data = ['name' => $id];
-        return view('pages.home')->with($data);
+    public function home(){
+        $user_id = auth()->user()->id;
+        $accounts = Account::all()->where('user_id', $user_id)->take(4);
+        $budgets = Budget::all()->where('user_id', $user_id)->take(4);
+        $expenses = DB::select("SELECT category_id, SUM(amount) amount FROM expenses WHERE user_id = '$user_id' GROUP BY category_id ORDER BY amount DESC");
+        $categories = Category::all()->where('user_id', $user_id);
+        return view('pages.home',['Expenses' => $expenses,'Categories' => $categories, 'Accounts' => $accounts, 'Budgets' => $budgets]);
     }
-
-    public function account($id = "No user"){
-        $data = ['name' => $id];
-        return view('pages.account')->with($data);
-    }
-
-    public function budget($id = "No user"){
-        $data = ['name' => $id];
-        return view('pages.budget')->with($data);
-    }
-
-    public function addExpense($id = "No user"){
-        $data = ['name' => $id];
-        return view('pages.addExpense')->with($data);
-    }
-
-    public function addAccount($id = "No user"){
-        $data = ['name' => $id];
-        return view('accounts.add')->with($data);
-    }
-
-    public function addReceipt($id = "No user"){
-        $data = ['name' => $id];
-        return view('pages.addReceipt')->with($data);
-    }
-
-    public function addBudget($id = "No user"){
-        $data = ['name' => $id];
-        return view('pages.addBudget')->with($data);
-    }
-
-    //Admin Module Navigation
 }

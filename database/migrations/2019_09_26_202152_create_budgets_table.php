@@ -15,8 +15,12 @@ class CreateBudgetsTable extends Migration
     {
         Schema::create('budgets', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->integer('user_id');
             $table->string('budget_name');
             $table->double('amount', 8, 2);
+            $table->double('amount_remaining', 8, 2)->default(0);
+            $table->date('budget_period')->default(date("Y-m-d", strtotime("+1 month")));
+            $table->mediumText('categories')->nullable();
             $table->mediumText('description')->nullable();
             $table->timestamps();
         });
