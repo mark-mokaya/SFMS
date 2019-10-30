@@ -9,15 +9,15 @@
 	<meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0/dist/Chart.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="/css/main.css">
-	<script src="{{ asset('js/app.js') }}" defer></script>
-	{{-- <link href="{{ asset('css/app.css') }}" rel="stylesheet"> --}}
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	{{-- <script src="{{ asset('js/app.js') }}" defer></script> --}}
+
 	<script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
-    <!-- Bootstrap Js CDN -->
-	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-	 {{-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" > --}}
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	
+	{{-- <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css"> --}}
+	{{-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> --}}
     <link href="https://fonts.googleapis.com/css?family=EB+Garamond|Pacifico&display=swap" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="../css/main.css">
    
@@ -36,13 +36,13 @@
 								<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#exampleNavComponents" aria-expanded"false">
 									<i class="glyphicon glyphicon-align-center"></i>
 								</button>
-								<h3>STUDENT SAVER
+								<h3>SFMS
 								</h3>							
 							</div>
 							<div class="collapse navbar-collapse" id="exampleNavComponents">
 								<ul class="nav navbar-nav">
 							
-								<li ><a  href="/home">SFMS</a></li>
+								<li ><a  href="/home">Home</a></li>
 								<li ><a href="/accounts">Accounts</a></li>
 								<li ><a href="/budgets">Budgets</a></li>
 								<li ><a href="/expenses">Expenses</a></li>
@@ -82,7 +82,7 @@
 						</ul>
 					</div>
 				</nav>
-				<br><br>
+				<br><br><br><br><br>
 				<main class="py-4">
 @include('inc.messages') 
 @yield('content')
