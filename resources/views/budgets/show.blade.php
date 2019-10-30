@@ -1,14 +1,14 @@
 @extends('layouts.main')
 @section('content')
 
-<div style="width: 62%; margin: 20px auto; border: 5px solid #000;">
+<div style="max-width: 1060px; min-width: 300px; margin: 20px auto; border: 5px solid #000;">
     <h1>{{strToUpper($budget->budget_name)}} BUDGET</h1>
     <h2>Remaining: <b style="color: #2ecc71;">Ksh. {{$budget->amount_remaining}}</b></h2>
     <p>{{ucfirst($budget->description)}}<br>
     <p><a href="/budgets">{{"<"}} Go Back</a></p>
 </div>
 
-<div style="width: 30%; height: 600px; padding: 30px 0px; margin: 20px 10px; border: 5px solid #000; display:inline-block; overflow: hidden;">
+<div style="max-width: 500px; min-width: 290px; max-height: 600px; padding: 30px 0px; margin: 20px 10px; border: 5px solid #000; display:inline-block; overflow: hidden;">
 		<article>
 			<h1>EXPENSES</h1>
 				<div style="max-width: 500px; overflow:hidden; margin: 50px auto;">
@@ -17,7 +17,7 @@
 		</article>
 	</div> 
 	
-    <div style="width: 30%; height: 600px; padding: 30px 0px; margin: 20px 10px; border: 5px solid #000; display:inline-block; overflow: hidden;">
+    <div style="max-width: 500px; min-width: 290px; max-height: 600px; padding: 30px 0px; margin: 20px 10px; border: 5px solid #000; display:inline-block; overflow: hidden;">
         <h1>RECORDS</h1> 
 		<article style="height: 72%; overflow-y: auto;">
             @foreach ($Expenses as $Expense)

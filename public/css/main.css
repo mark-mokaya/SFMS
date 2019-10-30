@@ -178,13 +178,13 @@ section{
 }
 
 #container .form_container{
-	width: 700px;
+	max-width: 700px;
 	margin: 0px auto;
 }
 
 .form_container form input{
 	height: 25px;
-	width: 400px;
+	max-width: 400px;
 	padding: 10px;
 	border-radius: 5px;
 	border: none;
@@ -193,7 +193,8 @@ section{
 
 .form_container form select{
 	height: 45px;
-	width: 420px;
+	max-width: 420px;
+	min-width: 200px;
 	padding: 10px;
 	border-radius: 5px;
 	border: none;
@@ -205,7 +206,7 @@ section{
 .form_container form input[type="submit"]{
  	border: none;
  	height: 60px;
- 	width: 420px;
+ 	max-width: 420px;
 }
 
 .form_container form input[type = "checkbox"]{

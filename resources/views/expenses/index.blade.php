@@ -22,11 +22,13 @@
             {{-- <p>My {{ucFirst($Account->acc_name)}} Account<br><b>Kshs. {{number_format($Account->amount,2,".",",")}}</b> --}}
             <p>Amount Spent Today<br>
                 <?php
+                    $amount = 0;
                     foreach ($ExpensesByDate as $Expense) {
                         if ($Expense->date_created == date('Y-m-d')) {
-                            echo "Kshs. ".number_format($Expense->amount,2,".",",");
+                            $amount += $Expense->amount;
                         }
                     }
+                    echo "Kshs. ".number_format($amount,2,".",",");
                 ?>
             <br><br>
             <p><a href="/expenses/{{date('Y-m-d')}}" class="call-to-action"><b>&nbsp; VIEW &nbsp;</b></a>

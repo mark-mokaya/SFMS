@@ -1,7 +1,7 @@
 @extends('layouts.main')
     @section('content')
 
-    <div style="padding: 30px 0px 0px; width: 33%; height: 700px; display:inline-block; overflow: hidden;">
+    <div style="padding: 30px 0px 0px; max-width: 500px; min-width: 300px; height: 700px; display:inline-block; overflow: hidden;">
         <article>
             <h1>MY ACCOUNTS</h1>  
             <br>
@@ -16,7 +16,7 @@
             <a href="/accounts" class="call-to-action">SEE DETAILS</a>        
         </article>
     </div> 
-    <div style="padding: 30px 0px 0px; color: #000; width: 33%; height: 700px; display:inline-block; overflow: hidden;">
+    <div style="padding: 30px 0px 0px; color: #000; max-width: 500px; min-width: 300px; height: 700px; display:inline-block; overflow: hidden;">
         <article style="background-color: #121212; color: #fff; overflow: auto;">
             <h1>MY EXPENSES</h1>
             <div style="max-width: 500px;  margin: 50px auto;">
@@ -33,14 +33,14 @@
             </article>
     </div>
 
-    <div style="padding: 30px 0px 0px; width: 33%; height: 700px; display:inline-block; overflow: hidden;">
+    <div style="padding: 30px 0px 0px; max-width: 500px; min-width: 300px; height: 700px; display:inline-block; overflow: hidden;">
         <article>
             <h1>MY BUDGETS</h1>  
             <br>
             @foreach ($Budgets as $Budget)
             <a href="/budgets/{{$Budget->id}}" style="text-decoration:none; color:#000;">
                 <article style="border: 3px solid #000; width: 70%; height 40px; margin:10px auto; padding: 10px; 5px;">
-                    <h1>{{strtoupper($Budget->budget_name)}}: <b>Kshs. {{number_format($Budget->amount,2,".",",")}}</b> </h1>                
+                    <h1>{{strtoupper($Budget->budget_name)}}: <b>Kshs. {{number_format($Budget->amount_remaining,2,".",",")}}</b> </h1>                
                 </article>
             </a>
             @endforeach
