@@ -73,6 +73,7 @@
             
             //Global options
             Chart.defaults.global.defaultFontSize = 16;
+            
             let doughChart = new Chart(doughnut,{
             type:'doughnut',
             data:{ 

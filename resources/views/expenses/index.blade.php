@@ -20,23 +20,48 @@
         <article class="account">
             <h1>TODAY</h1>
             {{-- <p>My {{ucFirst($Account->acc_name)}} Account<br><b>Kshs. {{number_format($Account->amount,2,".",",")}}</b> --}}
-            <p>Amount Spent Today<br>Kshs. 1000.00
+            <p>Amount Spent Today<br>
+                <?php
+                    foreach ($ExpensesByDate as $Expense) {
+                        if ($Expense->date_created == date('Y-m-d')) {
+                            echo "Kshs. ".number_format($Expense->amount,2,".",",");
+                        }
+                    }
+                ?>
             <br><br>
             <p><a href="/expenses/{{date('Y-m-d')}}" class="call-to-action"><b>&nbsp; VIEW &nbsp;</b></a>
         </article>
 
         <article class="account">
             <h1>PAST 7 DAYS</h1>
-            <p>Amount Spent In The Last 7 Days<br>Kshs. 3000.00
+            <p>Amount Spent In The Last 7 Days<br>
+                <?php 
+                    $amount = 0;
+                    foreach ($ExpensesByDate as $Expense) {
+                        if ($Expense->date_created >= date('Y-m-d', strtotime('-1 week'))) {
+                            $amount += $Expense->amount;
+                        }
+                    }
+                    echo "Kshs. ".number_format($amount,2,".",",");
+                ?>
             <br><br>
             <p><a href="/expenses/{{date('Y-m-d', strtotime('-1 week'))}}" class="call-to-action"><b>&nbsp; VIEW &nbsp;</b></a>
         </article>
 
         <article class="account">
             <h1>PAST 30 DAYS</h1>
-            <p>Amount Spent In The Last 30 Days<br>Kshs. 4500.00
+            <p>Amount Spent In The Last 30 Days<br>
+                <?php 
+                    $amount = 0;
+                    foreach ($ExpensesByDate as $Expense) {
+                        if ($Expense->date_created >= date('Y-m-d', strtotime('-1 month'))) {
+                            $amount += $Expense->amount;
+                        }
+                    }
+                    echo "Kshs. ".number_format($amount,2,".",",");
+                ?>
             <br><br>
-            <p><a href="/expenses/{{date('Y-m-d', strtotime('-30 days'))}}" class="call-to-action"><b>&nbsp; VIEW &nbsp;</b></a>
+            <p><a href="/expenses/{{date('Y-m-d', strtotime('-1 month'))}}" class="call-to-action"><b>&nbsp; VIEW &nbsp;</b></a>
         </article>
     </div>  
 
