@@ -1,6 +1,6 @@
 @extends('layouts.landing')
 @section('content')		
-	<div class="modal" id="login-modal">
+	<div class="form_container" id="login-modal">
 	<h1>LOGIN</h1>
 	<form action="{{route('login')}}" method="post">
 		@csrf

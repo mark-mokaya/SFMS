@@ -1,7 +1,7 @@
 @extends('layouts.main')
 @section('content')
     <h1>ADD EXPENSE</h1>
-	<div class="modal" id="reg-modal">        
+	<div class="form_container" id="reg-modal">        
         {!! Form::open(['action' => 'ExpensesController@store', 'method' => 'POST']) !!}
             <p>{{Form::label('category','Category')}}<br>
                 <?php 

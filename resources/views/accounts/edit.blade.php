@@ -10,7 +10,7 @@
         <!-- Tab content -->
     <div id="edit_account" class="tabcontent">
         <h1>EDIT ACCOUNT</h1>
-        <div class="modal" id="reg-Modal">
+        <div class="form_container" id="reg-Modal">
             {!! Form::open(['action' => ['AccountsController@update', $account->id], 'method' => 'POST']) !!}
                
                 <p>{{Form::label('account_name','Account Name')}}<br>
@@ -37,7 +37,7 @@
 
     <div id="add_income" class="tabcontent">
             <h1>ADD INCOME</h1>
-            <div class="modal" id="reg-Modal">
+            <div class="form_container" id="reg-Modal">
                 {!! Form::open(['action' => ['AccountsController@update', $account->id], 'method' => 'POST']) !!}
 
                     <p>{{Form::label('account_name','Account Name')}}<br>
@@ -58,7 +58,7 @@
 
         <div id="make_transfer" class="tabcontent">
                 <h1>MAKE TRANSFER</h1>
-                <div class="modal" id="reg-Modal">
+                <div class="form_container" id="reg-Modal">
                     {!! Form::open(['action' => ['AccountsController@update', $account->id], 'method' => 'POST']) !!}
 
                         <p>{{Form::label('source_account_name','Transfer From')}}<br>

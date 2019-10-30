@@ -1,7 +1,7 @@
 @extends('layouts.main')
 @section('content')
 	<h1>ADD CATEGORY</h1>
-		<div class="modal" id="reg-Modal">
+		<div class="form_container" id="reg-Modal">
 			{!! Form::open(['action' => 'CategoriesController@store', 'method' => 'POST']) !!}
 
 				<p>{{Form::label('category_name','Category Name')}}<br>

@@ -1,9 +1,6 @@
 @extends('layouts.main')
 @section('content')
 
-
-
-
 <div style="width: 82%; margin: 20px auto; border: 5px solid #000;">
     <h1>{{strToUpper($budget->budget_name)}} BUDGET</h1>
     <h2>Remaining: <b style="color: #2ecc71;">Ksh. {{$budget->amount}}</b></h2>

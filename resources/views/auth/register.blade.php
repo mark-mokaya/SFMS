@@ -1,6 +1,6 @@
 @extends('layouts.landing')
 @section('content')		
-	<div class="modal" id="reg-Modal">
+	<div class="form_container" id="reg-Modal">
 		<h1>REGISTER</h1>
 		
 		<form action="{{route('register')}}" method="post">

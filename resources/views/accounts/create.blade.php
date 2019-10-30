@@ -1,7 +1,7 @@
 @extends('layouts.main')
 @section('content')
 	<h1>ADD ACCOUNT</h1>
-		<div class="modal" id="reg-Modal">
+		<div class="form_container" id="reg-Modal">
 				{!! Form::open(['action' => 'AccountsController@store', 'method' => 'POST']) !!}
 				
 				<p>{{Form::label('account_name','Account Name')}}<br>
