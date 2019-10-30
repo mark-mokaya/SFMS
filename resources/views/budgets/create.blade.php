@@ -1,7 +1,7 @@
 @extends('layouts.main')
 @section('content')
     <h1>ADD BUDGET</h1>
-        <div class="modal" id="reg-Modal">
+        <div class="form_container" id="reg-Modal">
             {!! Form::open(['action' => 'BudgetsController@store', 'method' => 'POST']) !!}
 
                 <p>{{Form::label('budget_name','Budget Name')}}<br>

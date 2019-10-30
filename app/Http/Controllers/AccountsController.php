@@ -65,8 +65,13 @@ class AccountsController extends Controller
     {
         $user_id = auth()->user()->id;
         $account = Account::find($id);
-        $expenses = DB::select("SELECT * FROM expenses WHERE acc_id = '$id' AND user_id = '$user_id' ORDER BY amount DESC");
-        $categories = DB::select("SELECT * FROM categories WHERE user_id = '$user_id'");
+        $expenses = DB::select("SELECT * FROM expenses WHERE acc_id = '$id' AND user_id = '$user_id' ORDER BY date_created DESC");
+        $expense_categories = "";
+        foreach($expenses as $expense){
+            $expense_categories = $expense_categories." ".$expense->category_id;
+        }
+        $expense_categories = explode(" ", $expense_categories);
+        $categories = DB::table("categories")->where('user_id', $user_id)->whereIn('id', $expense_categories)->get();
         return view('accounts.show',['Account' => $account, 'Expenses' => $expenses, 'Categories' => $categories]);
     }
 

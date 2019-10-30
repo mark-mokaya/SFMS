@@ -90,8 +90,9 @@ class BudgetsController extends Controller
         $user_id = auth()->user()->id;
         $budget = Budget::find($id);
         $budget_categories = explode(" ", $budget->categories);
-        $categories = DB::select("SELECT * FROM categories")->where('user_id', $user_id)->whereIn('id', $budget_categories);
-        return view('budgets.edit',['budget' => $budget, 'Categories' => $categories]);
+        $categories = DB::table("categories")->where('user_id', $user_id)->whereNotIn('id', $budget_categories)->get();
+        $selected_categories = DB::table("categories")->where('user_id', $user_id)->whereIn('id', $budget_categories)->get();
+        return view('budgets.edit',['budget' => $budget, 'Categories' => $categories, 'Selected' => $selected_categories]);
     }
 
     /**

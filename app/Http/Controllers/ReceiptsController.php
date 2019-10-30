@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use DB;
 
 class ReceiptsController extends Controller
 {
@@ -23,7 +24,9 @@ class ReceiptsController extends Controller
      */
     public function create()
     {
-        //
+        $Accounts = DB::table('accounts')->select('id','acc_name')->where('user_id', auth()->user()->id)->get();
+        $Categories = DB::table('categories')->select('id','category_name')->where('user_id', auth()->user()->id)->get();
+        return view('receipts.create', ['Accounts' => $Accounts, 'Categories' => $Categories]);
     }
 
     /**

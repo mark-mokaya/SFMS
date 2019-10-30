@@ -20,8 +20,8 @@
         <article>
             <h1>MY THEMES</h1>  
             <br>
-            <div style="width:75px; height:75px; background-color: #00b894; display: inline-block;"></div>
-            <div style="width:75px; height:75px; background-color: #fff; display: inline-block;"></div>
+            <a href="#"><div style="width:75px; height:75px; background-color: #00b894; display: inline-block;"></div></a>
+            <a href="#"><div style="width:75px; height:75px; background-color: #fff; display: inline-block;"></div></a>
             <br><br>
         </article>
         <article>

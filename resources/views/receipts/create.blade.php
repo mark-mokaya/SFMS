@@ -11,7 +11,7 @@
 
 			<p><label>Upload Receipt</label><br>
 			<!-- <input type="file" name="receipt"> -->
-			<p><a href="addReceipt" class="call-to-action"><b>+</b></a>
+			<p><a href="" class="call-to-action"><b>+</b></a>
 			<br><br>
 
 			<p><input type="submit" name="add_receipt" value="ADD RECEIPT"></p>
