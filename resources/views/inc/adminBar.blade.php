@@ -14,7 +14,7 @@
 	<script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link href="https://fonts.googleapis.com/css?family=EB+Garamond|Pacifico&display=swap" rel="stylesheet">
-	<link rel="stylesheet" type="text/css" href="../css/mainlight.css">
+	<link rel="stylesheet" type="text/css" href="../css/main.css">
    
 	
 </head>
@@ -38,11 +38,10 @@
 								<ul class="nav navbar-nav">
 							
 								<li ><a  href="/home">Home</a></li>
-								<li ><a href="/accounts">Accounts</a></li>
-								<li ><a href="/budgets">Budgets</a></li>
-								<li ><a href="/expenses">Expenses</a></li>
-								<li ><a href="/categories">Categories</a></li>				   
-						
+								<li ><a href="/users">Users Graph</a></li>
+								<li ><a href="/devices">Users</a></li>
+								<li ><a href="/admin">Admins</a></li>
+							
 								@guest
 								<li class="nav-item">
 									<a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
