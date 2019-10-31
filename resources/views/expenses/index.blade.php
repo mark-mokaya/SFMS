@@ -115,6 +115,13 @@
 			},
 			tooltips:{
 				enable:true
+			},
+			scales: {
+				yAxes: [{
+					ticks: {
+						beginAtZero: true
+					}
+				}]
 			}
         }}); 
 

@@ -97,7 +97,14 @@
             },
             tooltips:{
                 enable:false
-            }
+            },
+			scales: {
+				yAxes: [{
+					ticks: {
+						beginAtZero: true
+					}
+				}]
+			}
         }});         
 </script>
     
