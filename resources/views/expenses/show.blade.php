@@ -22,41 +22,61 @@
 	</div>
 
 <script>
-		<?php  
+		<?php
             $val = [];
-            foreach ($ExpensesByDate as $Expense) { 
+            foreach ($ExpensesByCategory as $Expense) { 
                 array_push($val, $Expense->amount);
             }
             
             $cat = [];
-            foreach ($ExpensesByDate as $Expense) { 
-                array_push($cat,$Expense->date_created);
+            foreach ($ExpensesByCategory as $Expense) { 
+				foreach($Categories as $Category){
+					if($Category->id == $Expense->category_id){				
+                		array_push($cat,$Category->category_name);
+					}
+				}
             }
         ?>
 
         var groups = <?php echo json_encode($cat);?>;        
         var values = <?php echo json_encode($val);?>;
+        
+    	let bar= document.getElementById('chart').getContext('2d');
+        
+        //Global options
+        Chart.defaults.global.defaultFontSize = 16;
+        let barChart = new Chart(bar,{
+        type:'bar',
+        data:{ 
+        labels:groups,
+        datasets:[{
+            data: values,
+            backgroundColor:['#FE4A49', '#FF9124','#059BFF','#FED766','#E6E6EA'],
+            borderWidth:2,
+            borderColor:'#fff',
+            hoverBorderWidth:0,
+            hoverBorderColor:'#000'
+        }]},
+        options:{
 
-    	let line= document.getElementById('chart').getContext('2d');
-		let lineChart = new Chart(line,{
-		type:'line',
-		data:{ 
-		labels:['Food','Shopping','Travel','Entertainment'],
-		datasets:[{
-			label:'Monthly Spending',
-			data: []
-		}]},
-		options:{
-			title:{
-				display:false
-			},
-			legend:{
-				display:false,		
-			},
-			tooltips:{
-				enable:true
+            title:{
+                display:false
+            },
+            legend:{
+                display:false,
+                position: 'bottom',				
+            },
+            tooltips:{
+                enable:false
+            },
+			scales: {
+				yAxes: [{
+					ticks: {
+						beginAtZero: true
+					}
+				}]
 			}
-        }}); 
+        }});         
 </script>
     
 @endsection
