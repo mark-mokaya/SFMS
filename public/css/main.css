@@ -1,3 +1,38 @@
+ /* mobile view
+ @media(max-width:960px){
+	#container .form_container{
+		max-width: 700px;
+		margin: 0px auto;
+	}
+
+	.form_container form input{
+		height: 25px;
+		max-width: 400px;
+		padding: 10px;
+		border-radius: 5px;
+		border: none;
+		outline: none;
+	}
+	
+	.form_container form select{
+		height: 45px;
+		max-width: 420px;
+		min-width: 200px;
+		padding: 10px;
+		border-radius: 5px;
+		border: none;
+		outline: none;
+		margin-left: 60px;
+		margin-right: 10px;
+	}
+	
+	.form_container form input[type="submit"]{
+		 border: none;
+		 height: 60px;
+		 max-width: 420px;
+	}
+  } */
+
 body{
 	font-family: 'Lato', sans-serif;
 	font-size: 18px;
@@ -178,13 +213,13 @@ section{
 }
 
 #container .form_container{
-	max-width: 700px;
+	width: 700px;
 	margin: 0px auto;
 }
 
 .form_container form input{
 	height: 25px;
-	max-width: 400px;
+	width: 400px;
 	padding: 10px;
 	border-radius: 5px;
 	border: none;
@@ -193,8 +228,7 @@ section{
 
 .form_container form select{
 	height: 45px;
-	max-width: 420px;
-	min-width: 200px;
+	width: 420px;
 	padding: 10px;
 	border-radius: 5px;
 	border: none;
@@ -206,7 +240,7 @@ section{
 .form_container form input[type="submit"]{
  	border: none;
  	height: 60px;
- 	max-width: 420px;
+ 	width: 420px;
 }
 
 .form_container form input[type = "checkbox"]{
@@ -294,7 +328,4 @@ article form input[type = "submit"]:hover{
   }
 
 
-  /* mobile view */
-  @media(max-width:960px) and (min-width: 640){
-	
-  }
+ 
