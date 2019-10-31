@@ -76,7 +76,7 @@ class AccountsController extends Controller
         $expense_categories = explode(" ", $expense_categories);
 
         $categories = DB::table("categories")->where('user_id', $user_id)->whereIn('id', $expense_categories)->get();
-        return view('accounts.show',['Account' => $account, 'Expenses' => $expenses, 'Categories' => $categories]);
+        return view('accounts.show',['Account' => $account, 'Expenses' => $expenses, 'Categories' => $categories, 'Categorized_expenses' => $categorized_expenses]);
     }
 
     /**

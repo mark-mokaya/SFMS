@@ -75,8 +75,10 @@ class BudgetsController extends Controller
         $budget = Budget::find($id);
         $budget_categories = explode(" ", $budget->categories);
         $categories = DB::table('categories')->where('user_id', $user_id)->whereIn('id', $budget_categories)->get();
-        $expenses = DB::table('expenses')->where('user_id', $user_id)->whereIn('id', $budget_categories)->orderBy('amount', 'desc')->get();
-        return view('budgets.show',['budget' => $budget, 'Expenses' => $expenses, 'Categories' => $categories]);
+        $expenses = DB::table('expenses')->where('user_id', $user_id)->whereIn('category_id', $budget_categories)->orderBy('date_created', 'desc')->get();   
+        $expensesByDate = DB::table('expenses')->select(DB::raw('SUM(amount) amount'), 'date_created')->where('user_id', $user_id)->whereIn('category_id', $budget_categories)->groupBy('date_created')->get();
+        return view('budgets.show',['budget' => $budget, 'Expenses' => $expenses, 'Categories' => $categories, 'ExpensesByDate' => $expensesByDate]);
+
     }
 
     /**
