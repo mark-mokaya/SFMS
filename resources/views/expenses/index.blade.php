@@ -76,21 +76,42 @@
         </article>    
  <script>
 
+        <?php  
+            $val = [];
+            foreach ($ExpensesByDate as $Expense) { 
+                array_push($val, $Expense->amount);
+            }
+            
+            $cat = [];
+            foreach ($ExpensesByDate as $Expense) { 
+                array_push($cat,$Expense->date_created);
+            }
+        ?>
+
+        var groups = <?php echo json_encode($cat);?>;        
+        var values = <?php echo json_encode($val);?>;
+        
+
         let line= document.getElementById('linechart').getContext('2d');
 		let lineChart = new Chart(line,{
 		type:'line',
 		data:{ 
-		labels:['Food','Shopping','Travel','Entertainment'],
-		datasets:[{
-			label:'Monthly Spending',
-			data: []
-		}]},
+            labels:groups,
+            datasets:[{
+                label: 'Expenses',
+                data: values,
+                borderWidth:2,
+                borderColor:'#FE4A49',
+                hoverBorderWidth:3,
+                hoverBorderColor:'#000'
+
+            }]},
 		options:{
 			title:{
 				display:false
 			},
 			legend:{
-				display:false,		
+				display:true,		
 			},
 			tooltips:{
 				enable:true
@@ -125,7 +146,6 @@
         data:{ 
         labels:groups,
         datasets:[{
-
             data: values,
             backgroundColor:['#FE4A49', '#FF9124','#059BFF','#FED766','#E6E6EA'],
             borderWidth:2,
