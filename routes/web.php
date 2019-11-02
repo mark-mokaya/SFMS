@@ -86,3 +86,11 @@ Route::redirect('/ok', '/');
 */
 
 Auth::routes();
+Route::get('/home', 'HomeController@index')->name('home');
+Route::get('users', 'UserChartController@index');
+Route::get('devices', 'DevicesController@index');$router->post('product','ProductController@createProduct');   //for creating product
+$router->get('product/{id}','ProductController@updateProduct'); //for updating product
+$router->post('product/{id}','ProductController@deleteProduct');  // for deleting product
+$router->get('product','ProductController@index'); // for retrieving 
+
+
