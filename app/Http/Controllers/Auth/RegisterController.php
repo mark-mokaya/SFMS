@@ -30,7 +30,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/accounts';
 
     /**
      * Create a new controller instance.
@@ -53,9 +53,9 @@ class RegisterController extends Controller
     {
 
         return Validator::make($data, [
-            'first_name' => ['required', 'string', 'max:255'],
-            'last_name' => ['required', 'string', 'max:255'],
-            'username' => ['required', 'string', 'max:255', 'unique:users'],
+             'first_name' => ['required', 'string', 'max:255'],
+             'last_name' => ['required', 'string', 'max:255'],
+             'username' => ['required', 'string', 'max:255', 'unique:users'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8'],
         ]);
@@ -72,7 +72,6 @@ class RegisterController extends Controller
     {
         return view('auth.register', ['url' => 'admin']);
     }
-
     protected function create(array $data)
     {
         return User::create([
@@ -83,7 +82,6 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password'])
         ]);
     }
-
     protected function createAdmin(Request $request)
     {
         $this->validator($request->all())->validate();
