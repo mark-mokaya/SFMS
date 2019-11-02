@@ -6,12 +6,12 @@
 
         <article class="account add">
             <h1>Add Account</h1>
-            <p><a href="/accounts/create" class="call-to-action"><b>+</b></a>
+            <br><a href="/accounts/create" class="call-to-action"><b>+</b></a>
         </article>
     @else
         <article class="account add">
             <h1>Add Account</h1>
-            <p><a href="/accounts/create" class="call-to-action"><b>+</b></a>
+            <br><a href="/accounts/create" class="call-to-action"><b>+</b></a>
         </article>
 
         @foreach ($Accounts as $Account)

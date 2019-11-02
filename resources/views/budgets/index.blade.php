@@ -6,12 +6,12 @@
 
         <article class="budget add">
             <h1>Add Budget</h1>
-            <p><a href="/budgets/create" class="call-to-action"><b>+</b></a>
+            <br><a href="/budgets/create" class="call-to-action"><b>+</b></a>
         </article>
     @else
         <article class="budget add">
             <h1>Add Budget</h1>
-            <p><a href="/budgets/create" class="call-to-action"><b>+</b></a>
+            <br><a href="/budgets/create" class="call-to-action"><b>+</b></a>
         </article>
 
         @foreach ($Budgets as $Budget)
