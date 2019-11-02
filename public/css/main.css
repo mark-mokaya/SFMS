@@ -1,14 +1,6 @@
-<<<<<<< Updated upstream
-
-
-	
-  
- body{
-=======
 body{
->>>>>>> Stashed changes
 	font-family: 'Lato', sans-serif;
-	font-size: 18px;
+	font-size: 18px !important;
 	color: #000;
 	padding: 0px;
 	margin: 0px;
@@ -26,60 +18,30 @@ body{
 	text-align: center;
 }
 
-@media only screen and (max-width: 600px) {
-	body{
-		font-family: 'Lato', sans-serif;
-		font-size: 180%;
-		color: #000;
-		padding: 0px;
-		margin: 0px;
-		overflow-x: hidden;
-		overflow-y: scroll;
-		background-color: #fff;
-	}
-
-	h3{
-		font-family: 'Pacifico', cursive;
-		color: white !important;
-	}
-  }
-
-#container{
-	position: absolute;
-	margin: 0px;
-	padding: 0px;
-	width: 100%;
-	min-height: 100%;
-    text-align: center;
-}
-
 #container nav{
-	/* height: 30%; */
+	min-height: 75px;
 	padding-bottom: 10px;
-	/* width: 100%; */
 	overflow: hidden;
 	background-color: #27ae60;
 	z-index: 700;
 }
 
 .navbar-custom{
-	/* height: 30%; */
 	padding-bottom: 10px;
-	/* width: 100%; */
 	overflow: hidden;
 	background-color: #27ae60;
-	/* z-index: 700; */
-	} 
-	nav .navbar-nav li a{
+} 
+
+nav .navbar-nav li a{
   color: white !important;
-  }
+}
 
 .navbar-collapse.collapse.in {
 	display: block!important;
 	color:white;
 }
 .navbar-collapse *[class*='navbar-'] {
-	float: none!important;
+	float: left!important;
 	margin: 7.5px -15px;
 	color:white;
 }
@@ -88,11 +50,8 @@ body{
 } 
  .navbar-nav > li > a {
 	color:white;
-}
-<<<<<<< Updated upstream
-=======
+} 
   
->>>>>>> Stashed changes
 nav .links{
     width: auto;
 	display: block;
@@ -150,8 +109,8 @@ nav .log-reg-btns{
 
 .account, .budget{
     display: inline-block;
-	min-width: 200px;
-	min-height: 225px;
+	min-width: 250px;
+	height: 280px;
     padding: 20px;
     margin: 20px;
     overflow: hidden;
@@ -176,10 +135,7 @@ a.call-to-action:hover{
 }
 
 a.reverse{
-	text-decoration: none;
-	padding: 10px 15px;
 	border: 3px solid #fff;
-	border-radius: 100px;
 	color: #fff;
 }
 
@@ -279,44 +235,6 @@ section{
 	height: 20px;
 }
 
-@media only screen and (max-width: 600px) {
-	#container .form_container{
-		width: 300px;
-		margin: 0px auto;
-	}
-	
-	.form_container form input{
-		height: 25px;
-		width: 200px;
-		padding: 10px;
-		border-radius: 5px;
-		border: none;
-		outline: none;
-	}
-	
-	.form_container form select{
-		height: 45px;
-		width: 220px;
-		padding: 10px;
-		border-radius: 5px;
-		border: none;
-		outline: none;
-		margin-left: 60px;
-		margin-right: 10px;
-	}
-	
-	.form_container form input[type="submit"]{
-		 border: none;
-		 height: 60px;
-		 width: 220px;
-	}
-	
-	.form_container form input[type = "checkbox"]{
-		width: 30px;
-		height: 20px;
-	}
-}
-
 .fail{
 	color: #e74c3c;
 }
@@ -372,30 +290,150 @@ article form input[type = "submit"]:hover{
 .tab {
 	overflow: hidden;
 	background-color: #fff;
-  }
+}
   
-  .tab button {
+.tab button {
 	background-color: #fff;
 	border: none;
 	outline: none;
 	cursor: pointer;
 	padding: 14px 16px;
 	transition: 0.3s;
-  }
-  
-  .tab button:hover {
+}
+
+.tab button:hover {
 	background-color: #ddd;
-  }
-  
-  .tab button.active {
+}
+
+.tab button.active {
 	background-color: #27ae60;
 	color: #fff;
-  }
-  
-  .tabcontent {
+}
+
+.tabcontent {
 	display: none;
+}
+
+
+@media only screen and (max-width: 600px) {
+	body{
+		font-family: 'Lato', sans-serif;
+		font-size: 180%;
+		color: #000;
+		padding: 0px;
+		margin: 0px;
+		overflow-x: hidden;
+		overflow-y: scroll;
+		background-color: #fff;
+	}
+
+	h3{
+		font-family: 'Pacifico', cursive;
+		color: white !important;
+	}
+
+	#container nav{
+		/* height: 30%; */
+		padding-bottom: 10px;
+		/* width: 100%; */
+		overflow: hidden;
+		background-color: #27ae60;
+		z-index: 700;
+	}
+	
+	.navbar-custom{
+		/* height: 30%; */
+		padding-bottom: 10px;
+		/* width: 100%; */
+		overflow: hidden;
+		background-color: #27ae60;
+		/* z-index: 700; */
+		} 
+		nav .navbar-nav li a{
+	  color: white !important;
+	  }
+	
+	.navbar-collapse.collapse.in {
+		display: block!important;
+		color:white;
+	}
+	.navbar-collapse *[class*='navbar-'] {
+		float: none!important;
+		margin: 7.5px -15px;
+		color:white;
+	}
+	 .navbar-nav > li {
+		color:white;
+	} 
+	 .navbar-nav > li > a {
+		color:white;
+	}
+	  
+	nav .links{
+		width: auto;
+		display: block;
+		float: left;
+		margin-top: 20px;
+		margin-left: 5%;
+	}
+	
+	nav .log-reg-btns{
+		display: block;
+		float: right;
+		margin-top: 20px;
+		margin-right: 5%;
+	}
+	
+	.links ul li, .log-reg-btns ul li{
+		list-style: none;
+		display: inline-block;
+		margin: 0px 10px;
+	}
+	
+	.links a, .log-reg-btns a{
+		text-decoration: none;
+		color: #000;
+		padding: 10px 15px;
+		border-radius: 100px;
+	}
+	
+	.links a:hover, .log-reg-btns a:hover{
+		color: #fff;
+	}
+
+	#container .form_container{
+		width: 300px;
+		margin: 0px auto;
+	}
+	
+	.form_container form input{
+		height: 25px;
+		width: 200px;
+		padding: 10px;
+		border-radius: 5px;
+		border: none;
+		outline: none;
+	}
+	
+	.form_container form select{
+		height: 45px;
+		width: 220px;
+		padding: 10px;
+		border-radius: 5px;
+		border: none;
+		outline: none;
+		margin-left: 60px;
+		margin-right: 10px;
+	}
+	
+	.form_container form input[type="submit"]{
+		 border: none;
+		 height: 60px;
+		 width: 220px;
+	}
+	
+	.form_container form input[type = "checkbox"]{
+		width: 30px;
+		height: 20px;
+	}
   }
-
-
-  /* mobile view */
-
