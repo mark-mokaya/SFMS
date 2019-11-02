@@ -31,13 +31,13 @@ Route::get('/support', function () {
     return view('support');
 });
 
-Route::get('/login', function () {
-    return view('login');
-});
+// Route::get('/login', function () {
+//     return view('login');
+// });
 
-Route::get('/register', function () {
-    return view('register');
-});
+// Route::get('/register', function () {
+//     return view('register');
+// });
 
 
 
@@ -85,8 +85,14 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('users', 'UserChartController@index');
 Route::get('devices', 'DevicesController@index');$router->post('product','ProductController@createProduct');   //for creating product
-$router->get('product/{id}','ProductController@updateProduct'); //for updating product
-$router->post('product/{id}','ProductController@deleteProduct');  // for deleting product
-$router->get('product','ProductController@index'); // for retrieving 
+// $router->get('product/{id}','ProductController@updateProduct'); //for updating product
+// $router->post('product/{id}','ProductController@deleteProduct');  // for deleting product
+// $router->get('product','ProductController@index'); // for retrieving 
 
 
+Route::get('/login/admin', 'Auth\LoginController@showAdminLoginForm');
+Route::get('/register/admin', 'Auth\RegisterController@showAdminRegisterForm');
+Route::post('/login/admin', 'Auth\LoginController@adminLogin');
+Route::post('/register/admin', 'Auth\RegisterController@createAdmin');
+Route::view('/home', 'home')->middleware('auth');
+Route::view('/admin', 'admin');
