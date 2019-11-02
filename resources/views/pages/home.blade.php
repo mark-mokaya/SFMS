@@ -4,6 +4,7 @@
         <article>
             <h1>MY ACCOUNTS</h1>  
             <br>
+            @if(isset($Accounts))
                 @foreach ($Accounts as $Account)
                 <a href="/accounts/{{$Account->id}}" style="text-decoration:none; color:#000;">
                     <article style="border: 3px solid #000; width: 70%; height 40px; margin: 10px auto; padding: 10px; 5px;">
@@ -11,6 +12,7 @@
                     </article>
                 </a>
                 @endforeach
+            @endif
                 <br><br>
             <a href="/accounts" class="call-to-action">SEE DETAILS</a>        
         </article>
@@ -36,6 +38,7 @@
         <article>
             <h1>MY BUDGETS</h1>  
             <br>
+            @if(isset($Budgets))
             @foreach ($Budgets as $Budget)
             <a href="/budgets/{{$Budget->id}}" style="text-decoration:none; color:#000;">
                 <article style="border: 3px solid #000; width: 70%; height 40px; margin:10px auto; padding: 10px; 5px;">
@@ -43,6 +46,7 @@
                 </article>
             </a>
             @endforeach
+            @endif
             <br><br>
             <a href="/budgets" class="call-to-action">SEE DETAILS</a>    
         </article>
@@ -50,12 +54,15 @@
 
         <script>
             <?php  
-                $val = [];
+            $val = []; 
+            $cat = [];
+            if(isset($Expenses)){
+                
                 foreach ($Expenses as $Expense) { 
                     array_push($val, $Expense->amount);
                 }
                 
-                $cat = [];
+                
                 foreach ($Expenses as $Expense) { 
                     foreach ($Categories as $Category) { 
                         if ($Category->id == $Expense->category_id) { 
@@ -63,6 +70,7 @@
                         }
                     }
                 }
+            }
             ?>
 
             var groups = <?php echo json_encode($cat);?>;        
