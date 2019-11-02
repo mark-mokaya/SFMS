@@ -39,15 +39,11 @@ Route::get('/register', function () {
     return view('register');
 });
 
-Route::get('/stats', function () {
-    return view('pages.statistics');
-});
-
 
 
 // User Module Navigation
 
-Route::get('/home', 'PagesController@home');
+Route::get('/home', 'HomeController@home');
 
 
 //Routing - Other Controllers
