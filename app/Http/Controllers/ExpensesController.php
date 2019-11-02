@@ -61,7 +61,6 @@ class ExpensesController extends Controller
          $expense->date_created = $request->input('date_created');
          $expense->save();
          
-
          $account_update = Account::find($request->input('account_name'));
          $account_update->amount -=  $request->input('amount');
          $account_update->save();

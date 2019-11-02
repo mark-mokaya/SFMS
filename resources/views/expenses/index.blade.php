@@ -14,7 +14,7 @@
     <div style="padding: 30px 0px;">
         <article class="account add">
             <h1>Add Expense</h1>
-            <p><a href="/expenses/create" class="call-to-action"><b>+</b></a>
+            <br><a href="/expenses/create" class="call-to-action"><b>+</b></a>
         </article>
 
         <article class="account">

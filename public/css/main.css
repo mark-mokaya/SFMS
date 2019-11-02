@@ -205,8 +205,8 @@ section{
 }
 
 .form_container form input{
-	height: 25px;
-	width: 400px;
+	height: 45px;
+	width: 420px;
 	padding: 10px;
 	border-radius: 5px;
 	border: none;
@@ -221,6 +221,17 @@ section{
 	border: none;
 	outline: none;
 	margin-left: 60px;
+	margin-right: 10px;
+}
+
+.form_container form input[type = "file"]{
+	height: 45px;
+	width: 420px;
+	padding: 10px;
+	border-radius: 5px;
+	border: none;
+	outline: none;
+	margin-left: 140px;
 	margin-right: 10px;
 }
 

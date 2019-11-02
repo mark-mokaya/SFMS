@@ -38,7 +38,8 @@
 								<li ><a href="/accounts">Accounts</a></li>
 								<li ><a href="/budgets">Budgets</a></li>
 								<li ><a href="/expenses">Expenses</a></li>
-								<li ><a href="/categories">Categories</a></li>				   
+								<li ><a href="/categories">Categories</a></li>		
+								<li ><a href="/receipts">Receipts</a></li>				   
 						
 								@guest
 								<li class="nav-item">

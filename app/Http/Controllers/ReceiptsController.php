@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use DB;
+use App\Receipt;
 
 class ReceiptsController extends Controller
 {
@@ -14,7 +15,8 @@ class ReceiptsController extends Controller
      */
     public function index()
     {
-        //
+        $receipts = Receipt::all()->where('user_id', auth()->user()->id);
+        return view('receipts.index')->with('Receipts', $receipts);
     }
 
     /**
@@ -24,9 +26,8 @@ class ReceiptsController extends Controller
      */
     public function create()
     {
-        $Accounts = DB::table('accounts')->select('id','acc_name')->where('user_id', auth()->user()->id)->get();
-        $Categories = DB::table('categories')->select('id','category_name')->where('user_id', auth()->user()->id)->get();
-        return view('receipts.create', ['Accounts' => $Accounts, 'Categories' => $Categories]);
+         $Categories = DB::table('categories')->select('id','category_name')->where('user_id', auth()->user()->id)->get();
+         return view('receipts.create', ['Categories' => $Categories]);
     }
 
     /**
@@ -37,7 +38,21 @@ class ReceiptsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'category' => 'required',
+            'receipt' => 'required',
+         ]);
+
+         //Add Receipt
+         $receipt = new Receipt;
+         $receipt->user_id = auth()->user()->id;
+         $receipt->category_id = ucfirst($request->input('category'));
+         //$receipt->expense_id = ucfirst($request->input('expense_id'));
+         $receipt->amount = 0;
+         $receipt->description = ucfirst($request->input('description'));
+         $receipt->save();
+
+         return redirect('/receipts')->with('success', 'New Receipt Added');
     }
 
     /**

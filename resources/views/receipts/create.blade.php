@@ -1,21 +1,26 @@
 @extends('layouts.main')
 @section('content')
-	<h1>ADD RECEIPT</h1>
-	<div class="form_container">
-		<form action="" method="post">
-			<p><label>Category</label><br>
-			<input type="text" name="category"></p>
+    <h1>ADD RECEIPT</h1>
+        <div class="form_container" id="reg-Modal">
+			{!! Form::open(['action' => 'ReceiptsController@store', 'method' => 'POST']) !!}
+				<p>{{Form::label('category','Category')}}<br>
+					<?php 
+						$list=[];
+						foreach ($Categories as $Category) {
+							$list[$Category->id] = $Category->category_name;
+						}
+					?>
+				{{Form::select('category', $list, null, ['placeholder' => '', 'style' => 'text-align-last:center;'])}} <a href="/categories/create" class="call-to-action"><b>+</b></a></p>
 
-			<p><label>Description</label><br>
-			<textarea name="description" cols="43" rows="5" style="resize:none"></textarea>
+				<p>{{Form::label('receipt','Upload Receipt')}}<br>
+				{{Form::file('receipt')}}</p>
 
-			<p><label>Upload Receipt</label><br>
-			<!-- <input type="file" name="receipt"> -->
-			<p><a href="" class="call-to-action"><b>+</b></a>
-			<br><br>
+                <p>{{Form::label('description','Description')}}<br>
+                {{Form::textarea('description', 'My receipt for ', ['cols' => '43', 'rows' => '5', 'style' => 'resize:none; text-align: center;'])}}</p>		
 
-			<p><input type="submit" name="add_receipt" value="ADD RECEIPT"></p>
-			
-		</form>
-	</div>
+                <p>{{Form::submit('ADD RECEIPT')}}</p>
+
+            {!! Form::close() !!}
+        </div>
 @endsection
+
