@@ -84,8 +84,8 @@ Route::get('devices', 'DevicesController@index');$router->post('product','Produc
 // $router->get('product','ProductController@index'); // for retrieving 
 
 
-Route::get('/login/admin', 'Auth\LoginController@showAdminLoginForm');
-Route::get('/register/admin', 'Auth\RegisterController@showAdminRegisterForm');
+Route::get('/admin/login', 'Auth\LoginController@showAdminLoginForm');
+Route::get('/admin/register', 'Auth\RegisterController@showAdminRegisterForm');
 Route::post('/login/admin', 'Auth\LoginController@adminLogin');
 Route::post('/register/admin', 'Auth\RegisterController@createAdmin');
 Route::get('/home', 'HomeController@index')->middleware('auth');
