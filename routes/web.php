@@ -40,12 +40,6 @@ Route::get('/support', function () {
 // });
 
 
-
-// User Module Navigation
-
-Route::get('/home', 'HomeController@home');
-
-
 //Routing - Other Controllers
 
 Route::resource('accounts', 'AccountsController');
