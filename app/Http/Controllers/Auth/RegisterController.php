@@ -75,10 +75,9 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         return User::create([
-            // 'first_name' => $data['first_name'],
-            // 'last_name' => $data['last_name'],
-            // 'username' => $data['username'],
-            'name' => $data['name'],
+            'first_name' => $data['first_name'],
+            'last_name' => $data['last_name'],
+            'username' => $data['username'],
             'email' => $data['email'],
             'password' => Hash::make($data['password'])
         ]);
@@ -87,7 +86,9 @@ class RegisterController extends Controller
     {
         $this->validator($request->all())->validate();
         Admin::create([
-            'name' => $request->name,
+            'first_name'=>$request->first_name,
+            'last_name'=>$request->last_name,
+            'username' => $request->username,
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);
