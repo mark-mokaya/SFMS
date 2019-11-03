@@ -1,10 +1,12 @@
 @extends('layouts.main')
 @section('content')
-    <h1>ADD RECEIPT</h1>
-        <div class="form_container" id="reg-Modal">
-            <img src={{$Receipts->img_path}} alt="">
-			{!! Form::open(['action' => 'ReceiptsController@update', 'method' => 'POST']) !!}
-				<p>{{Form::label('category','Category')}}<br>
+    <h1>EDIT RECEIPT</h1>
+        <div class="form_container" id="reg-Modal">            
+            {!! Form::open(['action' => ['ReceiptsController@update', $Receipt->id], 'method' => 'POST']) !!}
+            
+                <p><img src="/storage/receipts/{{$Receipt->img_path}}" style="max-height: 300px;"></p>
+                
+                <p>{{Form::label('category','Category')}}<br>
 					<?php 
 						$list=[];
 						foreach ($Categories as $Category) {
@@ -17,10 +19,14 @@
                     {{Form::number('amount', $Receipt->amount, ['step'=>'0.01', 'min'=>'0'])}}</p>
 
                 <p>{{Form::label('description','Description')}}<br>
-                {{Form::textarea('description', 'My receipt for ', ['cols' => '43', 'rows' => '5', 'style' => 'resize:none; text-align: center;'])}}</p>		
+                {{Form::textarea('description', $Receipt->description, ['cols' => '43', 'rows' => '5', 'style' => 'resize:none; text-align: center;'])}}</p>		
 
-                <p>{{Form::submit('ADD RECEIPT')}}</p>
+                {{Form::hidden('_method', 'PUT')}}
+
+                <p> <input type="submit" name="action" value="EDIT RECEIPT">
             {!! Form::close() !!}
         </div>
 @endsection
+
+
 

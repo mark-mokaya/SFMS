@@ -27,10 +27,11 @@
             <p>{{Form::label('date_created','Date Created')}}<br>
                 {{Form::date('date_created', '', ['style' => 'text-indent: 25px;'])}}</p>
 
-            <p>{{Form::label('add_receipt','Add Receipt')}}</p>
-            <p><a href="/receipts/create" class="call-to-action"><b>+</b></a></p>
-            <br>
-            <p>{{Form::submit('ADD EXPENSE')}}</p>
+            <p> <input type="submit" name="action" value="ADD RECEIPT">
+                
+            <p> <input type="submit" name="action" value="ADD EXPENSE">
+            
+
         {!! Form::close() !!}
 	</div>
 @endsection

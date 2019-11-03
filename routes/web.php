@@ -82,7 +82,6 @@ Route::redirect('/ok', '/');
 */
 
 Auth::routes();
-Route::get('/home', 'HomeController@index')->name('home');
 Route::get('users', 'UserChartController@index');
 Route::get('devices', 'DevicesController@index');$router->post('product','ProductController@createProduct');   //for creating product
 // $router->get('product/{id}','ProductController@updateProduct'); //for updating product
@@ -94,5 +93,5 @@ Route::get('/login/admin', 'Auth\LoginController@showAdminLoginForm');
 Route::get('/register/admin', 'Auth\RegisterController@showAdminRegisterForm');
 Route::post('/login/admin', 'Auth\LoginController@adminLogin');
 Route::post('/register/admin', 'Auth\RegisterController@createAdmin');
-Route::view('/home', 'home')->middleware('auth');
+Route::get('/home', 'HomeController@index')->middleware('auth');
 Route::view('/admin', 'admin');

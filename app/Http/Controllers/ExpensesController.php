@@ -55,39 +55,65 @@ class ExpensesController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, [
-            'category' => 'required',
-            'account_name' => 'required',
-            'amount'  => 'required',
-            'date_created'  => 'required'
-         ]);
+        switch ($request->input('action')) {
+            case 'ADD EXPENSE':
+                $this->validate($request, [
+                    'category' => 'required',
+                    'account_name' => 'required',
+                    'amount'  => 'required',
+                    'date_created'  => 'required'
+                ]);
 
-         //Create expense
-         $expense = new Expense;
-         $expense->user_id = auth()->user()->id;
-         $expense->category_id = $request->input('category');;
-         $expense->acc_id = $request->input('account_name');
-         $expense->amount = $request->input('amount');
-         $expense->date_created = $request->input('date_created');
-         $expense->save();
-         
-         $account_update = Account::find($request->input('account_name'));
-         $account_update->amount -=  $request->input('amount');
-         $account_update->save();
+                //Create expense
+                $expense = new Expense;
+                $expense->user_id = auth()->user()->id;
+                $expense->category_id = $request->input('category');;
+                $expense->acc_id = $request->input('account_name');
+                $expense->amount = $request->input('amount');
+                $expense->date_created = $request->input('date_created');
+                $expense->save();
+                
+                $account_update = Account::find($request->input('account_name'));
+                $account_update->amount -=  $request->input('amount');
+                $account_update->save();
 
-         $budgets = DB::table('budgets')->select('id', 'categories', 'amount')->where('user_id', auth()->user()->id)->get();
+                $budgets = DB::table('budgets')->select('id', 'categories', 'amount')->where('user_id', auth()->user()->id)->get();
+                
+                foreach($budgets as $budget){
+                    $categories = explode(" ", $budget->categories);
+                    foreach($categories as $category){
+                        if($category == $request->input('category')){
+                            $budget_update = Budget::find($budget->id);
+                            $budget_update->amount_remaining -= $request->input('amount');
+                            $budget_update->save();
+                        }
+                    }
+                }
+
+                return redirect('/expenses') ->with('success', 'New Expense added');
+                break;
+    
+            case 'ADD RECEIPT':
+                $this->validate($request, [
+                    'category' => 'required',
+                    'account_name' => 'required',
+                    'amount'  => 'nullable',
+                    'date_created'  => 'required'
+                ]);
+
+                //Create expense
+                $expense = new Expense;
+                $expense->user_id = auth()->user()->id;
+                $expense->category_id = $request->input('category');;
+                $expense->acc_id = $request->input('account_name');
+                $expense->date_created = $request->input('date_created');
+                $expense->save();
+                
+                $Categories = DB::table('categories')->select('id','category_name')->where('user_id', auth()->user()->id)->get();
+                return view('receipts.create', ['Categories' => $Categories, 'Expense' => $expense]);
+                break;
+        }
          
-         foreach($budgets as $budget){
-             $categories = explode(" ", $budget->categories);
-             foreach($categories as $category){
-                 if($category == $request->input('category')){
-                    $budget_update = Budget::find($budget->id);
-                    $budget_update->amount_remaining -= $request->input('amount');
-                    $budget_update->save();
-                 }
-             }
-         }
-         return redirect('/expenses') ->with('success', 'New Expense added');
     }
 
     /**

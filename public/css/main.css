@@ -246,6 +246,11 @@ section{
 	height: 20px;
 }
 
+.form_container form input[type = "radio"]{
+	width: 30px;
+	height: 20px;
+}
+
 .fail{
 	color: #e74c3c;
 }
