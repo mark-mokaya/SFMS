@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use Auth;
+
 class LoginController extends Controller
 {
     /*
@@ -39,9 +40,9 @@ class LoginController extends Controller
         $this->middleware('guest:admin')->except('logout');
     }
 
-    public function username(){
-        return 'username';
-    }
+    // public function username(){
+    //     return 'username';
+    // }
 
     public function showAdminLoginForm()
     {
@@ -52,7 +53,7 @@ class LoginController extends Controller
     {
         $this->validate($request, [
             'username'   => 'required|username',
-            'password' => 'required|min:6'
+            'password' => 'required|min:8'
     ]);
 
         if (Auth::guard('admin')->attempt(['username' => $request->username, 'password' => $request->password], $request->get('remember'))) {
