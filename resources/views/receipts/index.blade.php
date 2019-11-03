@@ -34,11 +34,12 @@
                 {{Form::hidden('_method', 'DELETE')}}
                 {{Form::submit('X')}}
             {!!Form::close()!!}
-            <img src="" style="width: 100px; height: 100px;">
+        
+            <img src="/storage/receipts/{{$Receipt->img_path}}" style="width: 100px; height: 100px;">
+            
             <p>{{ucFirst($Receipt->description)}}<br>Total: <b>Kshs. {{number_format($Receipt->amount,2,".",",")}}</b>
             <br><br>
-            <p><a href="/receipts/{{$Receipt->id}}" class="call-to-action"><b>VIEW</b></a> &nbsp; 
-                <a href="/receipts/{{$Receipt->id}}/edit" class="call-to-action"><b>EDIT</b></a>
+            <p><a href="/receipts/{{$Receipt->id}}/edit" class="call-to-action"><b>EDIT</b></a>
        
         </article>
         @endforeach

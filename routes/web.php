@@ -40,6 +40,12 @@ Route::get('/support', function () {
 // });
 
 
+
+// User Module Navigation
+
+Route::get('/home', 'HomeController@home');
+
+
 //Routing - Other Controllers
 
 Route::resource('accounts', 'AccountsController');
@@ -76,7 +82,6 @@ Route::redirect('/ok', '/');
 */
 
 Auth::routes();
-Route::get('/home', 'HomeController@index');
 Route::get('users', 'UserChartController@index');
 Route::get('devices', 'DevicesController@index');$router->post('product','ProductController@createProduct');   //for creating product
 

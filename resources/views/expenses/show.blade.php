@@ -11,16 +11,6 @@
             </div>
         </article>
     </div>
-	
-	<div style="padding: 30px 0px; height: 600px; overflow: hidden;">
-		<article>
-			<h1>RECORDS</h1>  
-			<br>
-				
-			<br><br>  
-		</article>
-	</div>
-
 <script>
 		<?php
             $val = [];

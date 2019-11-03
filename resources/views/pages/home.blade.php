@@ -29,7 +29,6 @@
         <article style="padding: 10px;">
                 <h1>MY THEMES</h1>  
                 <a href="#"><div style="width:75px; height:75px; background-color: #27ae60; display: inline-block;"></div></a>
-                <a href="#"><div style="width:75px; height:75px; background-color: #000; display: inline-block;"></div></a>
                 <br><br>
             </article>
     </div>
