@@ -49,8 +49,8 @@
             }
        
             $budget_val = [];
-            $days = date('d', strtotime(date("Y-m-d")) - strtotime($budget->period));
-            $daily_limit =  (int) ($budget->amount / $days);  
+            $days = date('d', strtotime($budget->period) - strtotime(date("Y-m-d")));
+            $daily_limit =  (int) ($budget->amount / $days);
    
             foreach ($ExpensesByDate as $Expense) { 
                 array_push($budget_val, $daily_limit);
