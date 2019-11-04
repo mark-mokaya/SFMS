@@ -28,13 +28,9 @@
             <p>{{Form::label('date_created','Date Created')}}<br>
                 {{Form::date('date_created', $Expense->date_created, ['style' => 'text-indent: 25px;'])}}</p>
 
-            <p>{{Form::label('add_receipt','Add Receipt')}}</p>
-            <p><a href="#" class="call-to-action"><b>+</b></a></p>
-            <br>
-
             {{Form::hidden('_method', 'PUT')}}
-
-            <p>{{Form::submit('EDIT EXPENSE')}}</p>
+                
+            <p> <input type="submit" name="action" value="EDIT EXPENSE">
         {!! Form::close() !!}
 	</div>
 @endsection

@@ -24,7 +24,7 @@
                 <?php
                     $amount = 0;
                     foreach ($ExpensesByDate as $Expense) {
-                        if ($Expense->date_created == date('Y-m-d')) {
+                        if ($Expense->date_created > date('Y-m-d', strtotime('-1 day'))) {
                             $amount += $Expense->amount;
                         }
                     }

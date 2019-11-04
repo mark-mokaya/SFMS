@@ -194,20 +194,20 @@ class ReceiptsController extends Controller
             
                         //update new budget
                         foreach($budgets as $budget){
-                        $categories = explode(" ", $budget->categories);
-                        foreach($categories as $category){
-                            if($category == $request->input('category')){
-                                $budget_update = Budget::find($budget->id);
-                                $budget_update->amount_remaining -= $request->input('amount');
-                                $budget_update->save();
+                            $categories = explode(" ", $budget->categories);
+                            foreach($categories as $category){
+                                if($category == $request->input('category')){
+                                    $budget_update = Budget::find($budget->id);
+                                    $budget_update->amount_remaining -= $request->input('amount');
+                                    $budget_update->save();
+                                }
                             }
                         }
+                        
+                        $expense->category_id = $request->input('category');
+                        $expense->amount = $request->input('amount');
+                        $expense->save();
                     }
-                }
-        
-                    $expense->category_id = $request->input('category');
-                    $expense->amount = $request->input('amount');
-                    $expense->save();
 
                     $receipt->category_id = $request->input('category');
                     $receipt->amount = $request->input('amount');
