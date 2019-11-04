@@ -5,7 +5,7 @@
         <div class="col-md-8"> 
              <div class="card">
                         <h1>  <div class="card-header"> {{ isset($url) ? ucwords($url) : ""}} {{ __('Login') }}</div></h1>
-                        <div class="card-body">
+                        {{-- <div class="card-body"> --}}
                                 @isset($url)
                                 <form method="POST" action='{{ url("login/$url") }}' aria-label="{{ __('Login') }}">
                                 @else
