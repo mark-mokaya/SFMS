@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Http\Request;
-use Illuminate\Foundation\Validation\ValidatesRequests;
+
 
 class RegisterController extends Controller
 {
@@ -25,8 +25,7 @@ class RegisterController extends Controller
     */
 
     use RegistersUsers;
-    // use ValidatesRequests;
-    use Validator;
+  
     /**
      * Where to redirect users after registration.
      *
