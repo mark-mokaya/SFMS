@@ -31,7 +31,7 @@
 								<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#exampleNavComponents" aria-expanded"false">
 									<i class="glyphicon glyphicon-align-center"></i>
 								</button>
-								<h3>SFMS
+								<h3>SFMS 
 								</h3>							
 							</div>
 							<div class="collapse navbar-collapse" id="exampleNavComponents">
@@ -40,9 +40,9 @@
 								<li ><a  href="/home">Home</a></li>
 								<li ><a href="/users">Users Graph</a></li>
 								<li ><a href="/devices">Users</a></li>
-								<li ><a href="/admin">Admins</a></li>
+								{{-- <li ><a href="/admin">Admins</a></li> --}}
 							
-								@guest
+								{{-- @guest
 								<li class="nav-item">
 									<a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
 								</li>
@@ -66,12 +66,12 @@
 					
 										<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
 											@csrf
-										</form>
-					
+										</form> --}}
+{{-- 					
 									</div>
 								</li>
 								</div>
-							@endguest
+							@endguest --}}
 						
 						</ul>
 					</div>

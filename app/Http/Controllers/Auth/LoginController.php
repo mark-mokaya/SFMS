@@ -5,8 +5,9 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
-use Auth;
+// use Auth;
 
+use illuminate\Support\Facades\Auth;
 class LoginController extends Controller
 {
     /*
@@ -40,9 +41,6 @@ class LoginController extends Controller
         $this->middleware('guest:admin')->except('logout');
     }
 
-    // public function username(){
-    //     return 'username';
-    // }
 
     public function showAdminLoginForm()
     {
@@ -52,13 +50,14 @@ class LoginController extends Controller
     public function adminLogin(Request $request)
     {
         $this->validate($request, [
-            'username'   => 'required|username',
-            'password' => 'required|min:8'
+            'username'   => 'required',
+            'password' => 'required|min:6'
     ]);
+  
 
         if (Auth::guard('admin')->attempt(['username' => $request->username, 'password' => $request->password], $request->get('remember'))) {
 
-        return redirect()->intended('/admin');
+        return redirect()->intended('/users');
         }
         return back()->withInput($request->only('username', 'remember'));
 

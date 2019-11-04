@@ -58,29 +58,6 @@ Route::resource('categories', 'CategoriesController');
 
 Route::resource('receipts', 'ReceiptsController');
 
-
-
-/*Extra
-
-// Route::get('/home/{id?}', 'PagesController@home');
-
-Route::get('/', function () {
-    return view('index');
-});
-
-
-Route::get('/contact/{id?}', function ($id="No user") {
-    return view('contact', ['id'=>$id]);
-});
-
-Route::get('/about', function () {
-    return view('about', ['title' => 'THIS IS THE ABOUT PAGE']);
-});
-
-Route::redirect('/ok', '/');
-
-*/
-
 Auth::routes();
 Route::get('users', 'UserChartController@index');
 Route::get('devices', 'DevicesController@index');$router->post('product','ProductController@createProduct');   //for creating product
@@ -91,6 +68,3 @@ Route::post('/login/admin', 'Auth\LoginController@adminLogin');
 Route::post('/register/admin', 'Auth\RegisterController@createAdmin');
 Route::get('/home', 'HomeController@index')->middleware('auth');
 Route::view('/admin', 'admin');
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');

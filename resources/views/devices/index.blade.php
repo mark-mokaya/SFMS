@@ -4,33 +4,37 @@
 <html>
 <head>
         <style>
-                /* body{
-                  background:url(/images/water.jpg);
-                  background-size: cover;
-                } */
+      
              table {
             border-collapse: collapse;
             /* width: 100%; */
+            margin-left:2%;
+          
+          
           }
           
-          th, td {
-            text-align: left;
-            padding: 10px;
+          td {
+            text-align: center;
+            padding: 0.5%;
+            border:2px;
+            border-color:black;
           }
           
           tr:nth-child(even){background-color: #f2f2f2}
           tr:nth-child(odd){background-color: white}
           
           th {
-            background-color:	#e3f2fd;
+            background-color:	white;
             color: #7e8681;
+            padding:0.5%;
+            margin-right:0.5%;
             font-size:20px;
-            font-weight:500;
-            text-transform: uppercase;
+            font-weight:200;
+            /* text-transform: uppercase; */
           }
           Table{
               /* width:20%; */
-              /* margin-left: 10%; */
+              margin-right: 70%;
               width:80%;
           
           }
@@ -43,26 +47,30 @@
           head{
             width:80%;
           }
+          h3{
+            text-align: center;
+            font-weight:200;
+          }
              </style>
 </head>
 <body>
  
         <br> 
         <br><br>
-       <h4>SFMS USERS</h4>
+       <h3>SFMS USERS</h3>
        <div class="Table">
        <table >
                <tr style="padding: 20px">
 
-            <td>id</td>
-            <td>First_name</td>
-            <td>Last_name</td>
-            <td>Username</td>
-            <td>email</td>
+            <th>id</th>
+            <th>First_name</th>
+            <th>Last_name</th>
+            <th>Username</th>
+            <th>email</th>
           
-            <td>Password</td>
-            <td>created_at</td>
-            <td>updated_at</td>
+            <th>Password</th>
+            <th>created_at</th>
+            <th>updated_at</th>
 
         </tr>
         @foreach($users as $value)
