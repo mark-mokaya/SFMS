@@ -13,19 +13,19 @@
 	<script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link href="https://fonts.googleapis.com/css?family=EB+Garamond|Pacifico&display=swap" rel="stylesheet">
-	<link rel="stylesheet" type="text/css" href="/css/main.css">
+	<link href="{{ asset('css/main.css') }}" rel="stylesheet">
 	
    
 	
 </head>
-<body>
+<body><br><b><br></b>
 		<div id="container">		
 				<nav class="navbar navbar-default navbar-fixed-top navbar-custom">
 						<!-- Navbar Container -->
 						<div class="container">
 					
 							<!-- Navbar Header [contains both toggle button and navbar brand] -->
-							<div class="navbar-header">
+							<div class="navbar-header" >
 								<!-- Toggle Button [handles opening navbar components on mobile screens]-->
 								<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#exampleNavComponents" aria-expanded"false">
 									<i class="glyphicon glyphicon-align-center"></i>
@@ -55,7 +55,7 @@
 
 								<li class="nav-item dropdown">                                 
 								<a id="navbarDropdown" class="nav-link dropdown-toggle navbar-right " href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-										{{ Auth::user()->name }} <span class="caret"></span>
+										{{ Auth::user()->name }}
 									</a>
 					
 									<div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">

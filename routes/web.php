@@ -61,7 +61,7 @@ Route::resource('receipts', 'ReceiptsController');
 Auth::routes();
 Route::get('users', 'UserChartController@index');
 Route::get('devices', 'DevicesController@index');$router->post('product','ProductController@createProduct');   //for creating product
-
+Route::get('/deleteUser/{id}','DevicesController@index');
 Route::get('/login/admin', 'Auth\LoginController@showAdminLoginForm');
 Route::get('/register/admin', 'Auth\RegisterController@showAdminRegisterForm');
 Route::post('/login/admin', 'Auth\LoginController@adminLogin');

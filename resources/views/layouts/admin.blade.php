@@ -84,6 +84,7 @@ function closeNav() {
 }
 </script>
 @include('inc.adminBar')
+<br><br><br><br>
     <main class="py-4">
       @yield('content')
   </main>

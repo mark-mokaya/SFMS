@@ -1,6 +1,7 @@
 @include('inc.adminBar')
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!DOCTYPE html>
+<link href="{{ asset('css/main.css') }}" rel="stylesheet">
 <html>
 <head>
         <style>
@@ -27,6 +28,7 @@
             background-color:	white;
             color: #7e8681;
             padding:0.5%;
+            /* margin-left: 5%; */
             margin-right:0.5%;
             font-size:20px;
             font-weight:200;
@@ -56,23 +58,24 @@
 <body>
  
         <br> 
-        <br><br>
+        <br><br><br><br>
        <h3>SFMS USERS</h3>
        <div class="Table">
        <table >
-               <tr style="padding: 20px">
-
+         <thead>
+             <tr>
             <th>id</th>
             <th>First_name</th>
             <th>Last_name</th>
             <th>Username</th>
             <th>email</th>
-          
-            <th>Password</th>
+            {{-- <th>Password</th> --}}
             <th>created_at</th>
             <th>updated_at</th>
 
         </tr>
+      </thead>
+    <tbody>
         @foreach($users as $value)
        <tr>
         <td>{{ $value->id}}</td>
@@ -81,12 +84,13 @@
         <td>{{$value->username}}</td>
         <td>{{ $value->email}}</td>
         
-        <td>{{$value->password}}</td>
+        {{-- <td>{{$value->password}}</td> --}}
         <td>{{$value->created_at}}</td>
         <td>{{$value->updated_at}}</td>
-        {{-- <td><a href=""><button>DELETE</a>&nbsp;<a href=""><button>EDIT</a></td> --}}
+        <td><a href="/deleteUser/{{ $value->id }}">Delete</a></td>
        </tr>
         @endforeach
+      </tbody>
     </table>
 
 </div>
