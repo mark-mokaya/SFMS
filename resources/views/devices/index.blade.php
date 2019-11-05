@@ -25,13 +25,15 @@
           tr:nth-child(odd){background-color: white}
           
           th {
-            background-color:	white;
-            color: #7e8681;
+            background-color:#27ae60;
+            color: snow;
             padding:0.5%;
-            /* margin-left: 5%; */
+            margin-left: 5%;
             margin-right:0.5%;
             font-size:20px;
             font-weight:200;
+            text-align: center;
+
             /* text-transform: uppercase; */
           }
           Table{
@@ -58,7 +60,7 @@
 <body>
  
         <br> 
-        <br><br><br><br>
+        
        <h3>SFMS USERS</h3>
        <div class="Table">
        <table >
@@ -88,6 +90,7 @@
         <td>{{$value->created_at}}</td>
         <td>{{$value->updated_at}}</td>
         <td><a href="/deleteUser/{{ $value->id }}">Delete</a></td>
+        
        </tr>
         @endforeach
       </tbody>

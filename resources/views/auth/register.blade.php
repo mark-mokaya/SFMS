@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-               <h1> <div class="card-header"> {{ isset($url) ? ucwords($url) : ""}} {{ __('Register') }}</div></h1>
+               <h3> <div class="card-header"> {{ isset($url) ? ucwords($url) : ""}} {{ __('Register') }}</div></h3>
 
                 <div class="card-body">
                     @isset($url)

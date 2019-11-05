@@ -4,7 +4,7 @@
 {{-- {{$pulses}} --}}
 
 <div class="container">
-    <h1>Graph indicating number of users of the app</h1>
+    <h1>Graph indicating  users of the SFMS app</h1>
     <div class="row">
         <div class="col-6">
             <div class="card rounded">

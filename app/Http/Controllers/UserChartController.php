@@ -53,7 +53,7 @@ class UserChartController extends Controller
         }
         $usersChart = new UserChart;
         $usersChart->labels(['2 days ago', 'Yesterday', 'Today']);
-        $usersChart->dataset('My dataset', 'line', $data)
+        $usersChart->dataset('My dataset', 'doughnut', $data)
         ->color($borderColors)
         ->backgroundcolor($fillColors);
     

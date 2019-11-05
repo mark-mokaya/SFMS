@@ -28,7 +28,7 @@ body{
 
 .navbar-custom{
 	padding-bottom: 10px;
-	overflow: hidden;
+	/* overflow: hidden; */
 	background-color: #27ae60;
 } 
 
@@ -208,7 +208,7 @@ section{
 }
 
 .form_container form input{
-	height: 45px;
+	height: 20px;
 	width: 420px;
 	padding: 10px;
 	border-radius: 5px;
@@ -217,7 +217,7 @@ section{
 }
 
 .form_container form select{
-	height: 45px;
+	height: 20px;
 	width: 420px;
 	padding: 10px;
 	border-radius: 5px;
@@ -228,7 +228,7 @@ section{
 }
 
 .form_container form input[type = "file"]{
-	height: 45px;
+	height: 20px;
 	width: 420px;
 	padding: 10px;
 	border-radius: 5px;
@@ -498,6 +498,8 @@ article form input[type = "submit"]:hover{
 	/* td:nth-of-type(6):before { content: "Password"; } */
 	td:nth-of-type(6):before { content: "created_at"; }
 	td:nth-of-type(7):before { content: "updated_at"; }
-	
+	span{
+		color:rgb(202, 176, 176);
+	}
 
   }
