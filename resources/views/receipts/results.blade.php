@@ -70,7 +70,7 @@
                                     $search = "[A-Z0-9]\.[A-Z0-9]{2}";
                                     if(preg_match_all("/{$search}/", $word)) {
                                         str_replace(' ', '', $word);
-                                        array_push($values,$word);
+                                        array_push($values,number_format((float)$word,2,".",","));
                                     }
                                 }
                             }
@@ -81,7 +81,7 @@
                                     $search = "[A-Z0-9]\.[A-Z0-9]{2}";
                                     if(preg_match_all("/{$search}/", $word)) {
                                         str_replace(' ', '', $word);
-                                        array_push($values,$word);
+                                        array_push($values,number_format((float)$word,2,".",","));
                                     }
                                 }
                             }
@@ -179,12 +179,7 @@
                                 }
                             }
                 
-                            foreach($final as $value){
-                                if(preg_match("/' '/", $value)){
-                                    preg_replace("/' '/", '', $value);
-                                    $value = (float) $value;
-                                }
-                            }
+                            
                             $final = array_unique($final);
                             arsort($final);
 
