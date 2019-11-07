@@ -1,6 +1,6 @@
 @extends('layouts.main')
     @section('content')
-    <div style="padding: 0px 0px 0px; width: 500px; height: 700px; display:inline-block; overflow: hidden;">
+    <div style="padding: 0px 0px 0px; width: 400px; height: 700px; display:inline-block; overflow: hidden;">
         <article>
             <h1>MY ACCOUNTS</h1>  
             <br>
@@ -20,7 +20,7 @@
     <div style="padding: 0px 0px 0px; color: #000; width: 400px; height: 700px; display:inline-block; overflow: hidden;">
         <article style="background-color: #121212; color: #fff; overflow: auto;">
             <h1>MY EXPENSES</h1>
-            <div style="max-width: 500px;  margin: 50px auto;">
+            <div style="max-width: 400px;  margin: 50px auto;">
                 <canvas id="doughChart" width="10px"></canvas> 
                 <br><br>
                 <a href="/expenses" class="call-to-action reverse">SEE DETAILS</a>     
@@ -33,7 +33,7 @@
             </article>
     </div>
 
-    <div style="padding: 0px 0px 0px; width: 500px; height: 700px; display:inline-block; overflow: hidden;">
+    <div style="padding: 0px 0px 0px; width: 400px; height: 700px; display:inline-block; overflow: hidden;">
         <article>
             <h1>MY BUDGETS</h1>  
             <br>

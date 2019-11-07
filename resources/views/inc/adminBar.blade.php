@@ -37,14 +37,13 @@
 							
 								<li ><a  href="/users">Users</a></li>
 								<li ><a href="/devices">UserChart</a></li>
-								
 								@guest
 								<li class="nav-item">
-									{{-- <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a> --}}
+									<a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
 								</li>
 								@if (Route::has('register'))
 									<li class="nav-item">
-										{{-- <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a> --}}
+										<a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
 									</li>
 								@endif
 								@else
@@ -59,8 +58,7 @@
 										   onclick="event.preventDefault();
 														 document.getElementById('logout-form').submit();">
 											{{ __('Logout') }}
-										</a>
-					
+										</a>	
 										<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
 											@csrf
 										</form>

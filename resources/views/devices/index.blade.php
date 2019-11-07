@@ -9,7 +9,9 @@
              table {
             border-collapse: collapse;
             /* width: 100%; */
-            margin-left:2%;
+            margin-left:10%;
+            /* margin: 0 auto; */
+
           
           
           }
@@ -67,13 +69,14 @@
          <thead>
              <tr>
             <th>id</th>
-            <th>First_name</th>
-            <th>Last_name</th>
+            <th>First name</th>
+            <th>Last name</th>
             <th>Username</th>
             <th>email</th>
             {{-- <th>Password</th> --}}
             <th>created_at</th>
             <th>updated_at</th>
+            <th></th>
 
         </tr>
       </thead>
@@ -89,8 +92,12 @@
         {{-- <td>{{$value->password}}</td> --}}
         <td>{{$value->created_at}}</td>
         <td>{{$value->updated_at}}</td>
-        <td><a href="/deleteUser/{{ $value->id }}">Delete</a></td>
-        
+        {{-- <td><a href="/deleteUser/{{ $value->id }}">Delete</a></td> --}}
+        {{-- <td>
+          <button type="submit" class="btn btn-danger" name="destroy_device">
+          <span class="glyphicon glyphicon-trash"></span>
+      </button></td> --}}
+    <td><a class="btn btn-danger" href="delete/{{$value->id}}">Delete</a></td>
        </tr>
         @endforeach
       </tbody>

@@ -47,7 +47,7 @@ class UserChartController extends Controller
         ];
         $data = collect([]); 
 
-        for ($days_backwards = 2; $days_backwards >= 0; $days_backwards--) {
+        for ($days_backwards = 4; $days_backwards >= 0; $days_backwards--) {
           
             $data->push(User::whereDate('created_at', today()->subDays($days_backwards))->count());
         }
