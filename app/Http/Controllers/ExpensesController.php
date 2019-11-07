@@ -63,8 +63,16 @@ class ExpensesController extends Controller
                     'amount'  => 'required',
                     'date_created'  => 'required'
                 ]);
-
+                
                 //Create expense
+                $account_update = Account::find($request->input('account_name'));
+                $account_update = Account::find($request->input('account_name'));
+                if($account_update->amount < $request->input('amount')){
+                    return redirect('/expenses/create') ->with('error', 'Expense Amount is Greater than Account Balance'); 
+                }
+                $account_update->amount -=  $request->input('amount');
+                $account_update->save();
+
                 $expense = new Expense;
                 $expense->user_id = auth()->user()->id;
                 $expense->category_id = $request->input('category');;
@@ -72,10 +80,6 @@ class ExpensesController extends Controller
                 $expense->amount = $request->input('amount');
                 $expense->date_created = $request->input('date_created');
                 $expense->save();
-                
-                $account_update = Account::find($request->input('account_name'));
-                $account_update->amount -=  $request->input('amount');
-                $account_update->save();
 
                 $budgets = DB::table('budgets')->select('id', 'categories', 'amount')->where('user_id', auth()->user()->id)->get();
                 
@@ -89,6 +93,8 @@ class ExpensesController extends Controller
                         }
                     }
                 }
+                    
+               
 
                 return redirect('/expenses') ->with('success', 'New Expense added');
                 break;
