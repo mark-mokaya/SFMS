@@ -56,14 +56,14 @@
                 <?php 
                     $amount = 0;
                     foreach ($ExpensesByDate as $Expense) {
-                        if ($Expense->date_created >= date('Y-m-d', strtotime('-1 month'))) {
+                        if ($Expense->date_created >= date('Y-m-d', strtotime('-30 days'))) {
                             $amount += $Expense->amount;
                         }
                     }
                     echo "Kshs. ".number_format($amount,2,".",",");
                 ?>
             <br><br>
-            <p><a href="/expenses/{{date('Y-m-d', strtotime('-1 month'))}}" class="call-to-action"><b>&nbsp; VIEW &nbsp;</b></a>
+            <p><a href="/expenses/{{date('Y-m-d', strtotime('-30 days'))}}" class="call-to-action"><b>&nbsp; VIEW &nbsp;</b></a>
         </article>
     </div>  
 

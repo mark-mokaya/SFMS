@@ -97,7 +97,7 @@
           <button type="submit" class="btn btn-danger" name="destroy_device">
           <span class="glyphicon glyphicon-trash"></span>
       </button></td> --}}
-    <td><a class="btn btn-danger" href="delete/{{$value->id}}">Delete</a></td>
+        <td><a class="btn btn-danger" href="delete/{{$value->id}}">Delete</a></td>
        </tr>
         @endforeach
       </tbody>
