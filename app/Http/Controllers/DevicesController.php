@@ -8,7 +8,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 class DevicesController extends Controller
-{ 
+{    
     // public function index($id=0){
  
     //     // Fetch all records
