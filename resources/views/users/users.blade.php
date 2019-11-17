@@ -16,3 +16,4 @@
         </div>
         {{-- <a href="devices">VIEW DETAILS3</a> --}}
     </div>
+    
