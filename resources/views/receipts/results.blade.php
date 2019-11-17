@@ -19,7 +19,7 @@
                 {{Form::number('amount', $Receipt->amount, ['step'=>'0.01', 'min'=>'0'])}}</p>
             
             <p>{{Form::label('total','Or Select Total')}}
-                <div style="background-color: #ddd; max-width: 420px; border-radius: 5px; padding: 10px; margin: 0px; display: inline-block;">
+                <div class="results">
                     <?php
                     if(isset($_FILES['receipt'])){
                         $file_name = $_FILES['receipt']['name'];
@@ -186,7 +186,7 @@
                             $i = 0;
                             foreach ($final as $Total){
                                 if($i<12){
-                                echo '<span style="display: inline-block;">';
+                                echo '<span style="display: inline-block; color: #000;">';
                                 ?>
                                     {{Form::radio("amount", $Total)}} {{$Total}}
                                 <?php

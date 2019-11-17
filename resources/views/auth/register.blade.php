@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-               <h3> <div class="card-header"> {{ isset($url) ? ucwords($url) : ""}} {{ __('Register') }}</div></h3>
+               <h1> <div class="card-header"> {{ isset($url) ? ucwords($url) : ""}} {{ __('REGISTER') }}</div></h1>
 
                 <div class="card-body">
                     @isset($url)
@@ -15,27 +15,23 @@
                     @endisset
                         @csrf
 
+                                <p><label>First Name</label><br>
+                                <input type="text" name="first_name"></p>
 
-<p><label>First Name</label><br>
-<input type="text" name="first_name"></p>
+                                <p><label>Last Name</label><br>
+                                <input type="text" name="last_name"></p>
 
-<p><label>Last Name</label><br>
-<input type="text" name="last_name"></p>
+                                <p><label>Username</label><br>
+                                <input type="text" name="username"></p>
 
-<p><label>Username</label><br>
-<input type="text" name="username"></p>
+                                <p><label>Email</label><br>
+                                <input type="email" name="email"></p>
 
-<p><label>Email</label><br>
-<input type="email" name="email"></p>
-
-<p><label>Password</label><br>
-<input type="password" name="password"></p>
+                                <p><label>Password</label><br>
+                                <input type="password" name="password"></p>
                   
                                 <input type="submit"  name=" {{ __('Register') }}" >
-                                   
-                            
-                       
-
+  
                     </form>
                 </div>
             </div>

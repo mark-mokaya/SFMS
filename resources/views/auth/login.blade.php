@@ -4,7 +4,7 @@
 <div class="form_container" id="reg-Modal">
         <div class="col-md-8"> 
              <div class="card">
-                        <h1>  <div class="card-header"> {{ isset($url) ? ucwords($url) : ""}} {{ __('Login') }}</div></h1>
+                        <h1>  <div class="card-header"> {{ isset($url) ? ucwords($url) : ""}} {{ __('LOGIN') }}</div></h1>
                         {{-- <div class="card-body"> --}}
                                 @isset($url)
                                 <form method="POST" action='{{ url("login/$url") }}' aria-label="{{ __('Login') }}">
@@ -24,5 +24,6 @@
 		<p><input type="submit" name=" {{ __('Login') }}" value="LOGIN"></p>
                                
     </div>
+</div>
 </div>
 @endsection
