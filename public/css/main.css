@@ -495,7 +495,6 @@ article form input[type = "submit"]:hover{
 	td:nth-of-type(3):before { content: "Last name"; }
 	td:nth-of-type(4):before { content: "Username"; }
 	td:nth-of-type(5):before { content: "email"; }
-	/* td:nth-of-type(6):before { content: "Password"; } */
 	td:nth-of-type(6):before { content: "created at"; }
 	td:nth-of-type(7):before { content: "updated at"; }
 	span{

@@ -18,7 +18,7 @@
    
 	
 </head>
-<body><br><b><br></b>
+<body><br>
 		<div id="container">		
 		<nav class="navbar navbar-default navbar-fixed-top navbar-custom">
 			<!-- Navbar Container -->
@@ -43,9 +43,8 @@
 					<ul class="navbar-nav ml-auto"style="list-style-type:none;">
 						<!-- Authentication Links -->
 						<li class="nav-item dropdown">
-							{{-- <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre> --}}
 								{{ Auth::guard('admin')->user()->first_name }}  
-								{{-- <span class="caret"></span> --}}
+							
 							</a>
 
 							{{-- <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown"> --}}
@@ -67,14 +66,12 @@
 			</ul>
 		</div>
 	</nav>
-	<br><br><br><br>
+	<br><br>
 	<main class="py-4">
 @include('inc.messages') 
 @yield('content')
-
-<br><br><br>
 			</main> 
-<footer>
+{{-- <footer>
 	<div class="links">
 		<ul>
 			<li>© 2019 SFMS</li>
@@ -83,7 +80,7 @@
 			<li><a href="/support">Support</a></li>
 		</ul>
 	</div>
-</footer>
+</footer> --}}
 </div>
 </div>
 </body>

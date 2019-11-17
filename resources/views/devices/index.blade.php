@@ -60,9 +60,7 @@
              </style>
 </head>
 <body>
- 
-        <br> 
-        
+       
        <h3>SFMS USERS</h3>
        <div class="Table">
        <table >
@@ -73,7 +71,6 @@
             <th>Last name</th>
             <th>Username</th>
             <th>email</th>
-            {{-- <th>Password</th> --}}
             <th>created_at</th>
             <th>updated_at</th>
             <th></th>
@@ -88,15 +85,8 @@
         <td>{{ $value->last_name}}</td>
         <td>{{$value->username}}</td>
         <td>{{ $value->email}}</td>
-        
-        {{-- <td>{{$value->password}}</td> --}}
         <td>{{$value->created_at}}</td>
         <td>{{$value->updated_at}}</td>
-        {{-- <td><a href="/deleteUser/{{ $value->id }}">Delete</a></td> --}}
-        {{-- <td>
-          <button type="submit" class="btn btn-danger" name="destroy_device">
-          <span class="glyphicon glyphicon-trash"></span>
-      </button></td> --}}
         <td><a class="btn btn-danger" href="delete/{{$value->id}}">Delete</a></td>
        </tr>
         @endforeach
@@ -104,24 +94,5 @@
     </table>
 
 </div>
-{{-- @foreach ($devices as $device)
-<li> {{ $device}}  </li>
-@endforeach
- 
-<h1>Only Names Of Devices</h1>
- 
-@foreach ($devices as $device)
- 
-<li> {{ $device->name}}  </li>
- 
-@endforeach
- 
-<h1>Only Description Of Devices</h1>
- 
-@foreach ($devices as $device)
- 
-<li> {{ $device->description}}  </li>
- 
-@endforeach --}}
-    
+
 </body>
