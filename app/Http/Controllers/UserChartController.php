@@ -47,12 +47,12 @@ class UserChartController extends Controller
         ];
         $data = collect([]); 
 
-        for ($days_backwards = 4; $days_backwards >= 0; $days_backwards--) {
+        for ($days_backwards = 2; $days_backwards >= 0; $days_backwards--) {
           
             $data->push(User::whereDate('created_at', today()->subDays($days_backwards))->count());
         }
         $usersChart = new UserChart;
-        $usersChart->labels(['2 days ago', 'Yesterday', 'Today']);
+        $usersChart->labels(['4', 'Yesterday', 'Today']);
         $usersChart->dataset('My dataset', 'doughnut', $data)
         ->color($borderColors)
         ->backgroundcolor($fillColors);
@@ -60,7 +60,7 @@ class UserChartController extends Controller
 
       
     return view('users.users', [ 'usersChart' => $usersChart ] );
-
+    
     }
 
     /**
