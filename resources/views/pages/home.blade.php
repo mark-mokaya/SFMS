@@ -26,11 +26,7 @@
                 <a href="/expenses" class="call-to-action reverse">SEE DETAILS</a>     
             </div>    
         </article>
-        <article style="padding: 10px;">
-                <h1>MY THEMES</h1>  
-                <a href="#"><div style="width:75px; height:75px; background-color: #27ae60; display: inline-block;"></div></a>
-                <br><br>
-            </article>
+        
     </div>
 
     <div style="padding: 0px 0px 0px; width: 400px; height: 700px; display:inline-block; overflow: hidden;">

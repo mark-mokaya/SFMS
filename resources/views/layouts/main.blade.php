@@ -51,13 +51,14 @@
 									</li>
 								@endif
 								@else
-
+								<ul class="navbar-nav ml-auto"style="list-style-type:none;">
 								<li class="nav-item dropdown">                                 
-								<a id="navbarDropdown" class="nav-link dropdown-toggle navbar-right " href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-										{{ Auth::user()->first_name }} <span class="caret"></span>
+								 {{-- <a id="navbarDropdown" class="nav-link dropdown-toggle navbar-right " href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre> --}} 
+								<a>
+										{{ Auth::user()->first_name }} 
 									</a>
 					
-									<div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+									{{-- <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown"> --}}
 										<a class="dropdown-item" href="{{ route('logout') }}"
 										   onclick="event.preventDefault();
 														 document.getElementById('logout-form').submit();">
@@ -68,7 +69,7 @@
 											@csrf
 										</form>
 					
-									</div>
+									{{-- </div> --}}
 								</li>
 								</div>
 							@endguest
